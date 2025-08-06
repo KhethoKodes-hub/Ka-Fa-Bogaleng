@@ -128,7 +128,7 @@ a:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(74, 20, 140, 0.7), rgba(74, 20, 140, 0.7)), url('../images/hero-background.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(98, 21, 192, 0.7), rgba(107, 105, 111, 0.7)), url('assets/africancom') center/cover no-repeat;
     color: var(--white);
     display: flex;
     align-items: center;
