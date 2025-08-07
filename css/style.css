@@ -128,7 +128,7 @@ a:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(98, 21, 192, 0.7), rgba(107, 105, 111, 0.7)), url('assets/africancom') center/cover no-repeat;
+    background: linear-gradient(rgba(238, 235, 241, 0.7), rgba(109, 1, 109, 0.7)), url('assets/africancom') center/cover no-repeat;
     color: var(--white);
     display: flex;
     align-items: center;
@@ -179,9 +179,31 @@ a:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    background: url('../images/pattern.png') repeat-x;
-    opacity: 0.2;
+    height: 120px;
+    background: 
+        /* Base layer */
+        linear-gradient(135deg, 
+            var(--primary-color) 25%, 
+            transparent 25%) -30px 0,
+        linear-gradient(225deg, 
+            var(--primary-color) 25%, 
+            transparent 25%) -30px 0,
+        linear-gradient(315deg, 
+            var(--secondary-color) 25%, 
+            transparent 25%),
+        linear-gradient(45deg, 
+            var(--secondary-color) 25%, 
+            transparent 25%),
+        /* Accent dots */
+        radial-gradient(circle, 
+            var(--accent-color) 15%, 
+            transparent 15%) 0 0,
+        radial-gradient(circle, 
+            var(--accent-color) 15%, 
+            transparent 15%) 30px 30px;
+    background-size: 60px 60px;
+    opacity: 0.4;
+    mix-blend-mode: soft-light;
 }
 
 /* About Section */
