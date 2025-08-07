@@ -794,3 +794,72 @@ a:hover {
         top: 20px;
     }
 }
+
+/* White Navbar with Working Mobile Menu */
+.main-nav {
+    background-color: var(--white); /* Changed to white */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .main-nav {
+        background-color: var(--white); /* Ensure white background */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px; /* Starts below navbar */
+        left: 0;
+        width: 100%;
+        background: var(--white); /* White background */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        clip-path: circle(0% at 50% -20%);
+        transition: clip-path 0.7s ease;
+        z-index: 998;
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        clip-path: circle(150% at 50% 50%);
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: calc(0.1s * var(--i));
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        z-index: 999;
+        background: transparent;
+        border: none;
+        color: var(--primary-color); /* Purple icon to contrast white bg */
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* Text colors for white background */
+    .nav-links a {
+        color: var(--primary-color); /* Purple text */
+    }
+
+    /* Staggered animation indexes */
+    .nav-links li:nth-child(1) { --i: 1; }
+    .nav-links li:nth-child(2) { --i: 2; }
+    .nav-links li:nth-child(3) { --i: 3; }
+    .nav-links li:nth-child(4) { --i: 4; }
+    .nav-links li:nth-child(5) { --i: 5; }
+}
