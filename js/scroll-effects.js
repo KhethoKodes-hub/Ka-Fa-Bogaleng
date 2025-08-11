@@ -1,4 +1,3 @@
-// Intersection Observer for scroll animations
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
     
-    // Scroll to top button
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '↑';
     scrollToTopBtn.className = 'scroll-to-top';
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add scroll-to-top button styles
 const scrollToTopStyles = document.createElement('style');
 scrollToTopStyles.textContent = `
     .scroll-to-top {

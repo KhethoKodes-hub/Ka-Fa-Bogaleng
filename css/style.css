@@ -863,3 +863,380 @@ a:hover {
     .nav-links li:nth-child(4) { --i: 4; }
     .nav-links li:nth-child(5) { --i: 5; }
 }
+
+/* Footer Services Section Styling */
+.footer-services {
+    padding: 0 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 250px;
+}
+
+.footer-services h4 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-services h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #e83f6f; /* Or your brand accent color */
+}
+
+.footer-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-services ul li {
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.footer-services ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-services ul li a {
+    color: #d1d1d1;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    padding-left: 20px;
+}
+
+.footer-services ul li a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #e83f6f; /* Or your brand accent color */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.footer-services ul li a:hover {
+    color: #fff;
+    padding-left: 25px;
+}
+
+.footer-services ul li a:hover::before {
+    opacity: 1;
+    left: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-services {
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    
+    .footer-services h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .footer-services ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-services ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Services Section Styling */
+.services-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.services-section .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-section .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.services-section .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #e83f6f; /* Your brand accent color */
+    margin: 20px auto;
+}
+
+.services-section .section-subtitle {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #e83f6f; /* Your brand accent color */
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: rgba(232, 63, 111, 0.1); /* Light version of your accent color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e83f6f; /* Your brand accent color */
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: #e83f6f; /* Your brand accent color */
+    color: #fff;
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-family: 'Open Sans', sans-serif;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-link {
+    font-family: 'Open Sans', sans-serif;
+    color: #e83f6f; /* Your brand accent color */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    color: #333;
+    transform: translateX(5px);
+}
+
+.services-cta {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 0;
+    }
+    
+    .services-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-section .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Stats Section Styling */
+.stats-section {
+    padding: 80px 0;
+    background-color: #cfc5c8; /* Your brand accent color */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.5s ease;
+}
+
+.stat-card:hover::before {
+    width: 100%;
+    background: white;
+}
+
+.stat-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover h3 {
+    transform: scale(1.05);
+}
+
+.stat-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover p {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+/* Optional: Add a subtle pattern or shape in the background */
+.stats-section::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 60px 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .stat-card h3 {
+        font-size: 2.8rem;
+    }
+    
+    .stat-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 25px 15px;
+    }
+    
+    .stat-card h3 {
+        font-size: 2.5rem;
+    }
+}

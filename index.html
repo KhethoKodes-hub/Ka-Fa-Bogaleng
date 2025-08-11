@@ -7,48 +7,67 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" href="assets/KafaBogalenglogo.png" type="image/png"> 
+    <link rel="icon" href="assets/KafaBogalenglogo.png" type="image/png"> 
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-           <div class="logo">
-
-              <a href="index.html">
-        <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 50px;">
-    </a>         
-
-    <!--<h1>Ka Fa Bogaleng</h1>
-    <p>Building legacies through feminist business excellence</p> -->
-</div>
-
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 50px;">
+                </a>         
+            </div>
             <button class="mobile-menu-toggle">☰</button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="team.html">Team</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="home" class="hero">
         <div class="hero-content">
             <div class="proverb-container">
+              <!--  <h1 class="hero-title">Building Legacies Through Feminist Business Excellence</h1>  -->
                 <h2 class="proverb-text">"Mma ngwana o tshwara thipa ka fa bogaleng"</h2>
                 <p class="proverb-translation">"A mother holds the knife at the sharp end"</p>
             </div>
-            <a href="services.html" class="cta-button">Explore Our Services</a>
+            <div class="hero-buttons">
+                <a href="services.html" class="cta-button primary">Explore Our Services</a>
+                <a href="contact.html" class="cta-button secondary">Get In Touch</a>
+            </div>
         </div>
         <div class="hero-pattern"></div>
     </header>
 
-    <!-- About Section -->
+   <!-- <section class="stats-section">
+        <div class="section-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>5+</h3>
+                    <p>Years in Business</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10+</h3>
+                    <p>Industries Served</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Black Female Owned</p>
+                </div>
+            </div>
+        </div>
+    </section> --> 
+
     <section id="about" class="about-section">
         <div class="section-container">
             <h2 class="section-title">About Us</h2>
@@ -62,7 +81,7 @@
                 </div>
                 <div class="about-text">
                     <h3>Our Story</h3>
-                    <p>Ka Fa Bogaleng (Pty) Ltd is a 100% black owned female company founded on the 02 July 2019 in Tsantsabane. We are a multi-dimensional company rendering different services across various industries.</p>
+                    <p>Ka Fa Bogaleng (Pty) Ltd is a 100% black owned female company founded on the 02 July 2019 in Tsantsabane. We are a multi-dimensional company rendering different services across various industries with a commitment to excellence and empowerment.</p>
                     
                     <div class="mission-vision">
                         <div class="mission">
@@ -71,17 +90,18 @@
                         </div>
                         <div class="vision">
                             <h4>Our Vision</h4>
-                            <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies.</p>
+                            <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies that transform communities.</p>
                         </div>
                     </div>
                     
                     <div class="values">
-                        <h4>Our Values</h4>
+                        <h4>Our Core Values</h4>
                         <ul>
-                            <li>Family life</li>
-                            <li>Stable communities</li>
-                            <li>Ethical conduct in business</li>
-                            <li>Long lasting solutions</li>
+                            <li><i class="fas fa-heart"></i> Family life and community</li>
+                            <li><i class="fas fa-hands-helping"></i> Sustainable development</li>
+                            <li><i class="fas fa-balance-scale"></i> Ethical business conduct</li>
+                            <li><i class="fas fa-lightbulb"></i> Innovative solutions</li>
+                            <li><i class="fas fa-handshake"></i> Lasting partnerships</li>
                         </ul>
                     </div>
                 </div>
@@ -89,47 +109,119 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services-section">
         <div class="section-container">
             <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
             <div class="services-grid">
-                <!-- Service cards would be generated by JavaScript -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Business Consulting</h3>
+                    <p>Strategic guidance to help your business grow and thrive in competitive markets.</p>
+                    <a href="services.html#consulting" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Events Management</h3>
+                    <p>Memorable events perfectly executed from conception to completion.</p>
+                    <a href="services.html#events" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Construction Services</h3>
+                    <p>Quality construction and project management for all your building needs.</p>
+                    <a href="services.html#construction" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Catering Services</h3>
+                    <p>Exquisite culinary experiences for corporate and private events.</p>
+                    <a href="services.html#catering" class="service-link">Learn more →</a>
+                </div>
+            </div>
+            <div class="services-cta">
+                <a href="services.html" class="cta-button">View All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team-section">
+    <!-- Testimonials Section 
+    <section class="testimonials-section">
         <div class="section-container">
-            <h2 class="section-title">Our Team</h2>
-            <div class="team-profiles">
-                <div class="profile-card">
-                    <img src="assets/Millicent.png" alt="Millicent Bathaodi">
-                    <h3>Millicent Bathaodi</h3>
-                    <p class="position">Director</p>
-                    <div class="credentials">
-                        <span class="credential-badge">Management Diploma</span>
-                        <span class="credential-badge">HR Certificate</span>
-                        <span class="credential-badge">ISO Lead Auditor</span>
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Ka Fa Bogaleng transformed our corporate events with their exceptional planning and attention to detail. Their feminist approach brought fresh perspective to our operations."</p>
                     </div>
-                    <p class="bio">Milly is an enthusiastic and multitalented member of the team with extensive training in quality management and organizational development.</p>
+                    <div class="testimonial-author">
+                        <h4>Sarah M.</h4>
+                        <p>CEO, Tech Solutions Ltd</p>
+                    </div>
                 </div>
-                
-                <div class="profile-card">
-                    <img src="assets/Tsholo.png" alt="Tsholofelo Magolane">
-                    <h3>Tsholofelo Magolane</h3>
-                    <p class="position">Director</p>
-                    <div class="credentials">
-                        <span class="credential-badge">Computer Technology</span>
-                        <span class="credential-badge">Chef Skills</span>
-                        <span class="credential-badge">Construction Mgmt</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Working with this team has been a game-changer for our small business. Their consulting services helped us streamline operations and increase profitability."</p>
                     </div>
-                    <p class="bio">Tsholo is very enthusiastic about events planning, design and branding, blending these with her technical training to help clients develop their identity.</p>
+                    <div class="testimonial-author">
+                        <h4>James K.</h4>
+                        <p>Owner, Local Retail Store</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
+
+    <!-- Blog Preview Section
+    <section class="blog-section">
+        <div class="section-container">
+            <h2 class="section-title">From Our Blog</h2>
+            <p class="section-subtitle">Insights and updates on feminist business practices</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="assets/blog1.jpg" alt="Women in Business">
+                    <div class="blog-content">
+                        <h3>Empowering Women Entrepreneurs</h3>
+                        <p class="blog-excerpt">How feminist business models are changing the corporate landscape in South Africa...</p>
+                        <a href="blog/post1.html" class="blog-link">Read Article</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog2.jpg" alt="Community Development">
+                    <div class="blog-content">
+                        <h3>Building Sustainable Communities</h3>
+                        <p class="blog-excerpt">Our approach to business that prioritizes long-term community impact alongside profitability...</p>
+                        <a href="blog/post2.html" class="blog-link">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-cta">
+                <a href="blog.html" class="cta-button">Visit Our Blog</a>
+            </div>
+        </div>
+    </section>  -->
+
+    <!-- Newsletter Section 
+    <section class="newsletter-section">
+        <div class="section-container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for business tips, updates, and special offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="cta-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -151,6 +243,17 @@
                             <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="consulting">Business Consulting</option>
+                                <option value="events">Events Management</option>
+                                <option value="construction">Construction Services</option>
+                                <option value="catering">Catering Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
@@ -160,20 +263,27 @@
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <div class="contact-method">
-                        <h4>Phone</h4>
+                        <h4><i class="fas fa-phone-alt"></i> Phone</h4>
                         <p>Millicent: <a href="tel:0785174608">078 517 4608</a></p>
                         <p>Tsholofelo: <a href="tel:0761880124">076 188 0124</a></p>
                     </div>
                     <div class="contact-method">
-                        <h4>Address</h4>
+                        <h4><i class="fas fa-envelope"></i> Email</h4>
+                        <p><a href="mailto:info@kafabogaleng.co.za">info@kafabogaleng.co.za</a></p>
+                    </div>
+                    <div class="contact-method">
+                        <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
                         <p>Ert 7113 Albertina Sisulu Street<br>
                         Postdene Location<br>
                         Postmasburg</p>
                     </div>
                     <div class="contact-method">
-                        <h4>Business Hours</h4>
+                        <h4><i class="fas fa-clock"></i> Business Hours</h4>
                         <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
                         Saturday: 9:00 AM - 1:00 PM</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1ddummy!2d24.123456!3d-28.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzE1LjUiTiAyNMKwMDcnMjEuNiJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -184,34 +294,55 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-logo">
-                 <a href="index.html">
-        <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 50px;">
-    </a>         
-
+                <a href="index.html">
+                    <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 50px;">
+                </a>
                 <p>Creating legacies through feminist business excellence since 2019</p>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="home">Home</a></li>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="team.html">Team</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-social">
-    <h4>Follow Us</h4>
-    <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-</div>
+            <div class="footer-services">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#consulting">Business Consulting</a></li>
+                    <li><a href="services.html#events">Events Management</a></li>
+                    <li><a href="services.html#construction">Construction Services</a></li>
+                    <li><a href="services.html#catering">Catering Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to receive updates and business insights</p>
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2023 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
