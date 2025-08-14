@@ -128,7 +128,7 @@ a:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(238, 235, 241, 0.7), rgba(109, 1, 109, 0.7)), url('') center/cover no-repeat;
+    background: linear-gradient(rgba(238, 235, 241, 0.7), rgba(109, 1, 109, 0.7)), url('assets/kafaher.png') center/cover no-repeat;
     color: var(--white);
     display: flex;
     align-items: center;
@@ -136,9 +136,10 @@ a:hover {
     text-align: center;
     margin-top: 60px; /* Account for fixed nav */
     position: relative;
-}
+} 
 
 .hero-content {
+    background-image: url('assets/');
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
@@ -1392,3 +1393,4 @@ a:hover {
         padding: 20px;
     }
 }
+
