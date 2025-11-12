@@ -4,68 +4,712 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ka Fa Bogaleng | Empowering Through Business</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/KafaBogalenglogo.png" type="image/png"> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4A148C;
+    --secondary-color: #FF6D00;
+    --accent-color: #FFD600;
+    --neutral-dark: #333333;
+    --neutral-medium: #757575;
+    --neutral-light: #F5F5F5;
+    --white: #FFFFFF;
+    --black: #000000;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section - Mother & Child Theme */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(44, 36, 22, 0.85), rgba(139, 69, 19, 0.75)),
+                        url('./assets/Kafaher.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .proverb-container {
+            margin-bottom: 3rem;
+        }
+
+        .proverb-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .proverb-translation {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button.primary {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* About Section - Nurturing Theme */
+        .about-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(249, 247, 244, 0.95), rgba(232, 199, 158, 0.3)),
+                        url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600') center/cover fixed;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .image-collage {
+            position: relative;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .collage-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mission, .vision {
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+        }
+
+        .mission h4, .vision h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .values {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: var(--white);
+        }
+
+        .values h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .values ul {
+            list-style: none;
+        }
+
+        .values li {
+            padding: 0.8rem 0;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .values li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Services Section - Caring Hands Theme */
+        .services-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(212, 175, 55, 0.1)),
+                        url('https://images.unsplash.com/photo-1588392382834-a891154bca4d?w=1600') center/cover fixed;
+            position: relative;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Contact Section - Welcoming Theme */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(44, 36, 22, 0.9), rgba(139, 69, 19, 0.85)),
+                        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600') center/cover fixed;
+            position: relative;
+        }
+
+        .contact-section .section-title {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .contact-info {
+            color: var(--white);
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-method {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .contact-method h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .contact-method p,
+        .contact-method a {
+            color: var(--white);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .contact-method a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer - Community Theme */
+        .main-footer {
+            background: linear-gradient(135deg, rgba(44, 36, 22, 0.95), rgba(139, 69, 19, 0.9)),
+                        url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600') center/cover;
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            color: var(--accent);
+            line-height: 1.8;
+        }
+
+        .footer-social h4,
+        .footer-links h4,
+        .footer-services h4,
+        .footer-newsletter h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+        }
+
+        .footer-links a,
+        .footer-services a {
+            color: var(--accent);
+            text-decoration: none;
+            line-height: 2.2;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: var(--primary);
+        }
+
+        .footer-newsletter p {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+        }
+
+        .footer-newsletter-form button {
+            background: var(--primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .legal-links a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: var(--primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .proverb-text {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="main-nav">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 100px; width: 100px;">
+                <a href="#home">
+                    <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo">
                 </a>         
             </div>
             <button class="mobile-menu-toggle">☰</button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-               <!-- <li><a href="team.html">Team</a></li> -->
-                <!--<li><a href="blog.html">Blog</a></li>-->
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <header id="home" class="hero">
-    <div class="hero-content">
-        <div class="proverb-container">
-            <h2 class="proverb-text">"Mma ngwana o tshwara thipa ka fa bogaleng"</h2>
-            <p class="proverb-translation">"A mother holds the knife at the sharp end"</p>
-        </div>
-        <div class="hero-buttons">
-            <a href="services.html" class="cta-button primary">Explore Our Services</a>
-            <a href="contact.html" class="cta-button secondary">Get In Touch</a>
-        </div>
-    </div>
-</header>
-
-
-   <!-- <section class="stats-section">
-        <div class="section-container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>5+</h3>
-                    <p>Years in Business</p>
-                </div>
-                <div class="stat-card">
-                    <h3>50+</h3>
-                    <p>Satisfied Clients</p>
-                </div>
-                <div class="stat-card">
-                    <h3>10+</h3>
-                    <p>Industries Served</p>
-                </div>
-                <div class="stat-card">
-                    <h3>100%</h3>
-                    <p>Black Female Owned</p>
-                </div>
+        <div class="hero-content">
+            <div class="proverb-container">
+                <h2 class="proverb-text">"Mma ngwana o tshwara thipa ka fa bogaleng"</h2>
+                <p class="proverb-translation">"A mother holds the knife at the sharp end"</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="#services" class="cta-button primary">Explore Our Services</a>
+                <a href="#contact" class="cta-button secondary">Get In Touch</a>
             </div>
         </div>
-    </section> --> 
+    </header>
 
     <section id="about" class="about-section">
         <div class="section-container">
@@ -74,8 +718,6 @@
                 <div class="about-image">
                     <div class="image-collage">
                         <img src="assets/community.png" alt="Ka Fa Bogaleng team" class="collage-main">
-                        <img src="assets/africanprint.png" alt="Community work" class="collage-small top-right">
-                        <img src="assets/womenafri.png" alt="Event planning" class="collage-small bottom-left">
                     </div>
                 </div>
                 <div class="about-text">
@@ -119,7 +761,7 @@
                     </div>
                     <h3>Business Consulting</h3>
                     <p>Strategic guidance to help your business grow and thrive in competitive markets.</p>
-                    <a href="services.html#consulting" class="service-link">Learn more →</a>
+                    <a href="#" class="service-link">Learn more →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -127,7 +769,7 @@
                     </div>
                     <h3>Events Management</h3>
                     <p>Memorable events perfectly executed from conception to completion.</p>
-                    <a href="services.html#events" class="service-link">Learn more →</a>
+                    <a href="#" class="service-link">Learn more →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -135,7 +777,7 @@
                     </div>
                     <h3>Construction Services</h3>
                     <p>Quality construction and project management for all your building needs.</p>
-                    <a href="services.html#construction" class="service-link">Learn more →</a>
+                    <a href="#" class="service-link">Learn more →</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -143,86 +785,15 @@
                     </div>
                     <h3>Catering Services</h3>
                     <p>Exquisite culinary experiences for corporate and private events.</p>
-                    <a href="services.html#catering" class="service-link">Learn more →</a>
+                    <a href="#" class="service-link">Learn more →</a>
                 </div>
             </div>
             <div class="services-cta">
-                <a href="services.html" class="cta-button">View All Services</a>
+                <a href="#contact" class="cta-button primary">View All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section 
-    <section class="testimonials-section">
-        <div class="section-container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Ka Fa Bogaleng transformed our corporate events with their exceptional planning and attention to detail. Their feminist approach brought fresh perspective to our operations."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Sarah M.</h4>
-                        <p>CEO, Tech Solutions Ltd</p>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Working with this team has been a game-changer for our small business. Their consulting services helped us streamline operations and increase profitability."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>James K.</h4>
-                        <p>Owner, Local Retail Store</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-
-    <!-- Blog Preview Section
-    <section class="blog-section">
-        <div class="section-container">
-            <h2 class="section-title">From Our Blog</h2>
-            <p class="section-subtitle">Insights and updates on feminist business practices</p>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="assets/blog1.jpg" alt="Women in Business">
-                    <div class="blog-content">
-                        <h3>Empowering Women Entrepreneurs</h3>
-                        <p class="blog-excerpt">How feminist business models are changing the corporate landscape in South Africa...</p>
-                        <a href="blog/post1.html" class="blog-link">Read Article</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="assets/blog2.jpg" alt="Community Development">
-                    <div class="blog-content">
-                        <h3>Building Sustainable Communities</h3>
-                        <p class="blog-excerpt">Our approach to business that prioritizes long-term community impact alongside profitability...</p>
-                        <a href="blog/post2.html" class="blog-link">Read Article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-cta">
-                <a href="blog.html" class="cta-button">Visit Our Blog</a>
-            </div>
-        </div>
-    </section>  -->
-
-    <!-- Newsletter Section 
-    <section class="newsletter-section">
-        <div class="section-container">
-            <div class="newsletter-content">
-                <h2>Stay Updated</h2>
-                <p>Subscribe to our newsletter for business tips, updates, and special offers.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="cta-button">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="section-container">
             <h2 class="section-title">Contact Us</h2>
@@ -256,7 +827,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                        <button type="submit" class="cta-button primary">Send Message</button>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -281,29 +852,20 @@
                         <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
                         Saturday: 9:00 AM - 1:00 PM</p>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1ddummy!2d24.123456!3d-28.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzE1LjUiTiAyNMKwMDcnMjEuNiJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <a href="index.html">
-                    <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo" style="height: 100px; width: 100px;">
-                </a>
+                <img src="assets/KafaBogalenglogo.png" alt="Ka Fa Bogaleng Logo">
                 <p>Creating legacies through feminist business excellence since 2019</p>
                 <div class="footer-social">
                     <h4>Connect With Us</h4>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <!--<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>-->
-                       <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>-->
-                        <!--<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
                     </div>
                 </div>
             </div>
@@ -311,41 +873,14 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-services">
                 <h4>Our Services</h4>
                 <ul>
-                    <li><a href="services.html#consulting">Business Consulting</a></li>
-                    <li><a href="services.html#events">Events Management</a></li>
-                    <li><a href="services.html#construction">Construction Services</a></li>
-                    <li><a href="services.html#catering">Catering Services</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Newsletter</h4>
-                <p>Subscribe to receive updates and business insights</p>
-                <form class="footer-newsletter-form">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
-            <div class="legal-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/scroll-effects.js"></script>
-</body>
-</html>
+                    <li><a href="#services">Business Consulting</a></li>
+                    <li><a href="#services">Events Management</a></li>
+                    <li
