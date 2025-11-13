@@ -3,222 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Ka Fa Bogaleng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Our Services - Ka Fa Bogaleng | Comprehensive Business Solutions</title>
+    <meta name="description" content="Discover Ka Fa Bogaleng's comprehensive services including business consulting, events management, construction, catering, and more. Empowering businesses since 2019.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/KafaBogalenglogo.png" type="image/png">
-    <style>
-        /* Base Styles */
-        :root {
-            --primary-color: #4A148C;
-            --secondary-color: #FF6D00;
-            --accent-color: #FFD600;
-            --neutral-dark: #333333;
-            --neutral-medium: #757575;
-            --neutral-light: #F5F5F5;
-            --white: #FFFFFF;
-            --black: #000000;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
+        <link rel="icon=" type="image/png" href="assets/kaLOGOOoo.png">
 
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --primary-blue: #4A90E2;
+            --primary-green: #7ED957;
+            --light-blue: #6BB6FF;
+            --light-green: #A8E6A1;
+            --dark-blue: #2C5AA0;
+            --dark-green: #5CB85C;
+            --neutral-dark: #2C3E50;
+            --neutral-medium: #7F8C8D;
+            --neutral-light: #ECF0F1;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #4A90E2 0%, #7ED957 100%);
+            --gradient-secondary: linear-gradient(135deg, #6BB6FF 0%, #A8E6A1 100%);
+            --gradient-overlay: linear-gradient(135deg, rgba(74, 144, 226, 0.9) 0%, rgba(126, 217, 87, 0.85) 100%);
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--neutral-dark);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+            background: var(--white);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Scroll Progress Bar */
+        .scroll-progress {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
-            transition: var(--transition);
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: 0 2px 10px rgba(74, 144, 226, 0.5);
         }
 
-        nav.scrolled {
-            padding: 5px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        /* Modern Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(74, 144, 226, 0.1);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-nav.scrolled {
+            padding: 0.3rem 0;
+            box-shadow: 0 8px 40px rgba(74, 144, 226, 0.2);
+            background: rgba(255, 255, 255, 1);
         }
 
         .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            transition: var(--transition);
         }
 
         .logo img {
             height: 80px;
-            width: 80px;
-            transition: var(--transition);
+            width: auto;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
         }
 
         .logo img:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) translateY(-3px);
+            filter: drop-shadow(0 8px 20px rgba(126, 217, 87, 0.4));
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: var(--gradient-primary);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 3rem;
+            margin: 0;
         }
 
         .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-dark);
             font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
-            background-color: var(--secondary-color);
-            transition: var(--transition);
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::before {
             width: 100%;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-            z-index: 1001;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: var(--white);
-            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 5rem 2rem 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .mobile-nav-links li {
-            margin-bottom: 1.5rem;
-        }
-
-        .mobile-nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: var(--transition);
-            display: block;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .mobile-nav-links a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
         }
 
         /* Page Header */
         .page-header {
-            background: linear-gradient(rgba(74, 20, 140, 0.85), rgba(109, 1, 109, 0.8)), url('assets/africancom') center/cover no-repeat;
-            height: 50vh;
-            min-height: 400px;
+            min-height: 60vh;
+            background: var(--gradient-overlay), url('./assets/Kafaher.png') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
-            margin-top: 80px;
+            padding: 12rem 2rem 6rem;
             position: relative;
             overflow: hidden;
         }
@@ -228,41 +170,111 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(126, 217, 87, 0.2), transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
         }
 
-        .page-header h1 {
-            font-size: 3.5rem;
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.3), transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .page-header-content {
+            max-width: 1000px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
             color: var(--white);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 30px rgba(0,0,0,0.3);
+            line-height: 1.2;
+            transition: transform 0.3s ease;
         }
 
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease 0.2s both;
-            color: rgba(255,255,255,0.9);
+        .page-title:hover {
+            transform: scale(1.02);
+            text-shadow: 3px 6px 40px rgba(74, 144, 226, 0.5);
         }
 
-        /* Services Content */
-        .services-content {
-            padding: 80px 0;
+        .page-subtitle {
+            font-size: 1.8rem;
+            color: var(--light-green);
+            font-style: italic;
+            font-weight: 300;
+            text-shadow: 1px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(74, 144, 226, 0.1);
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, rgba(236, 240, 241, 0.5) 0%, rgba(168, 230, 161, 0.1) 100%);
+            position: relative;
         }
 
         .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
             position: relative;
             display: inline-block;
             left: 50%;
@@ -271,39 +283,40 @@
 
         .section-title::after {
             content: '';
-            display: block;
-            width: 80px;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
             height: 4px;
-            background: var(--secondary-color);
-            margin: 15px auto;
+            background: var(--gradient-primary);
             border-radius: 2px;
         }
 
         .section-subtitle {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--neutral-medium);
+            margin-bottom: 4rem;
+            margin-top: 1rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
         }
 
         .service-card {
-            background-color: var(--white);
-            border-radius: 15px;
+            background: var(--white);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            border-top: 5px solid transparent;
+            border-image: var(--gradient-primary) 1;
         }
 
         .service-card::before {
@@ -311,203 +324,223 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
             height: 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            transition: var(--transition);
-            z-index: 0;
+            background: var(--gradient-secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
         }
 
         .service-card:hover::before {
-            height: 100%;
+            transform: scaleX(1);
+        }
+
+        .service-card:hover::after {
+            width: 500px;
+            height: 500px;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card > * {
-            position: relative;
-            z-index: 1;
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(126, 217, 87, 0.2);
         }
 
         .service-icon {
-            height: 100px;
-            width: 100px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            width: 90px;
+            height: 90px;
+            margin: 2rem auto 1.5rem;
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 30px auto 20px;
+            font-size: 2.2rem;
             color: var(--white);
-            font-size: 2.5rem;
-            transition: var(--transition);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .service-card:hover .service-icon {
-            background: var(--white);
-            color: var(--primary-color);
-            transform: scale(1.1);
+            transform: rotateY(360deg) scale(1.15);
+            box-shadow: 0 15px 40px rgba(126, 217, 87, 0.5);
+            background: var(--gradient-secondary);
         }
 
         .service-content {
-            padding: 0 30px 30px;
+            padding: 0 2rem 2.5rem;
             text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
-        .service-content h3 {
-            margin-bottom: 15px;
-            transition: var(--transition);
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
         }
 
-        .service-card:hover .service-content h3 {
-            color: var(--white);
+        .service-card:hover h3 {
+            transform: scale(1.05);
         }
 
-        .service-content p {
+        .service-card p {
             color: var(--neutral-medium);
-            margin-bottom: 20px;
-            flex-grow: 1;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-content p {
-            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         .service-link {
-            color: var(--secondary-color);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border: 2px solid var(--secondary-color);
-            border-radius: 50px;
-            transition: var(--transition);
-            margin-top: auto;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .service-link i {
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-link {
-            color: var(--white);
-            border-color: var(--white);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .service-link:hover i {
-            transform: translateX(5px);
+        .service-link:hover {
+            transform: translateX(10px);
         }
 
         /* Service Categories */
-        .service-categories {
-            margin: 60px 0;
-            padding: 40px 0;
-            background: linear-gradient(135deg, rgba(255, 214, 0, 0.05), rgba(255, 109, 0, 0.05));
-            border-radius: 20px;
+        .categories-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(107, 182, 255, 0.08) 100%);
         }
 
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .category-card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            border-top: 4px solid var(--primary-color);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 4px solid transparent;
+            border-image: var(--gradient-primary) 1;
         }
 
         .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(126, 217, 87, 0.2);
         }
 
         .category-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .category-card h3 {
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
         .category-count {
             display: inline-block;
-            background: var(--secondary-color);
+            background: var(--gradient-primary);
             color: var(--white);
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 1rem;
         }
 
         /* Process Section */
         .process-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color), #6a1b9a);
+            padding: 7rem 2rem;
+            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600') center/cover fixed;
             color: var(--white);
         }
 
         .process-section .section-title {
             color: var(--white);
+            -webkit-text-fill-color: var(--white);
         }
 
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
         .process-step {
             text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .process-step:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(126, 217, 87, 0.3);
         }
 
         .step-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: var(--accent-color);
-            color: var(--primary-color);
+            width: 70px;
+            height: 70px;
+            background: var(--light-green);
+            color: var(--dark-blue);
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.2) rotate(360deg);
+            background: var(--white);
         }
 
         .process-step h3 {
             color: var(--white);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
 
         .process-step p {
@@ -516,56 +549,67 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 80px 0;
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(107, 182, 255, 0.08) 100%);
             text-align: center;
-            background: linear-gradient(135deg, rgba(255, 214, 0, 0.1), rgba(255, 109, 0, 0.1));
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
         }
 
         .cta-button {
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            margin: 0.5rem;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .cta-button.primary {
-            background: var(--primary-color);
+            background: var(--gradient-primary);
             color: var(--white);
-            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.3);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.4);
         }
 
         .cta-button.primary:hover {
-            background: #3a0f6e;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(74, 20, 140, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(126, 217, 87, 0.5);
         }
 
         .cta-button.secondary {
             background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            color: var(--primary-blue);
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
         }
 
         .cta-button.secondary:hover {
-            background: var(--primary-color);
+            background: var(--primary-blue);
             color: var(--white);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
         }
 
         /* Service Details Modal */
@@ -579,19 +623,19 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             overflow-y: auto;
-            padding: 20px;
+            padding: 2rem;
         }
 
         .modal-content {
             background-color: var(--white);
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 20px;
+            margin: 2% auto;
+            padding: 3rem;
+            border-radius: 25px;
             max-width: 800px;
             width: 90%;
             position: relative;
-            animation: modalFadeIn 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.4s ease;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
         }
 
         @keyframes modalFadeIn {
@@ -607,82 +651,89 @@
 
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--neutral-medium);
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            background: var(--neutral-light);
         }
 
         .close-modal:hover {
             color: var(--secondary-color);
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(74, 144, 226, 0.1);
+            transform: rotate(90deg);
         }
 
         .modal-header {
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
         .modal-header h2 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
         }
 
         .modal-icon {
             font-size: 4rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .service-features {
-            margin: 30px 0;
+            margin: 2.5rem 0;
         }
 
         .service-features h3 {
-            margin-bottom: 20px;
-            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.8rem;
+            font-size: 1.4rem;
         }
 
         .service-features h3 i {
-            color: var(--primary-color);
+            color: var(--primary-blue);
         }
 
         .service-features ul {
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
+            gap: 0.8rem;
         }
 
         .service-features li {
-            margin-bottom: 10px;
+            margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 30px;
+            padding-left: 2rem;
             display: flex;
             align-items: center;
         }
 
         .service-features li::before {
             content: '✓';
-            color: var(--secondary-color);
+            color: var(--primary-green);
             position: absolute;
             left: 0;
             font-weight: bold;
-            font-size: 1.2rem;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 109, 0, 0.1);
+            font-size: 1.1rem;
+            width: 24px;
+            height: 24px;
+            background: rgba(126, 217, 87, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -690,91 +741,60 @@
         }
 
         /* Footer */
-        footer {
-            background-color: var(--primary-color);
+        .main-footer {
+            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600') center/cover;
             color: var(--white);
-            padding: 60px 0 0;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 5rem 2rem 2rem;
         }
 
         .footer-logo img {
             height: 100px;
-            width: 100px;
-            margin-bottom: 15px;
-            transition: var(--transition);
+            width: auto;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.3));
         }
 
-        .footer-logo img:hover {
-            transform: scale(1.05);
-        }
-
-        .footer-logo p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-
-        .footer-links h4, .footer-social h4 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
+        .footer-logo:hover img {
+            transform: scale(1.08) rotate(-3deg);
         }
 
         .social-icons a {
-            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
             color: var(--white);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-icons a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            color: var(--primary-color);
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-8px) scale(1.15) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(126, 217, 87, 0.5);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+        .footer-newsletter-form button {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            color: var(--white);
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .footer-newsletter-form button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(126, 217, 87, 0.5);
         }
 
         /* Back to Top Button */
@@ -784,18 +804,18 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: var(--secondary-color);
-            color: white;
+            background: var(--gradient-primary);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+            transition: all 0.4s ease;
+            z-index: 100;
             opacity: 0;
             visibility: hidden;
-            z-index: 999;
         }
 
         .back-to-top.visible {
@@ -804,15 +824,78 @@
         }
 
         .back-to-top:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(126, 217, 87, 0.5);
         }
 
-        /* Animations */
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gradient-primary);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--neutral-dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -820,27 +903,22 @@
             }
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 968px) {
             .nav-links {
                 display: none;
             }
-            
+
             .mobile-menu-toggle {
                 display: block;
             }
-            
+
+            .page-title {
+                font-size: 3rem;
+            }
+
             .section-title {
-                font-size: 2rem;
-            }
-
-            .page-header h1 {
                 font-size: 2.5rem;
-            }
-
-            .page-header {
-                height: 40vh;
-                min-height: 350px;
             }
 
             .services-grid {
@@ -852,174 +930,145 @@
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
             .modal-content {
-                padding: 25px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .page-header {
-                height: 35vh;
-                min-height: 300px;
-            }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
-            
-            .service-content {
-                padding: 20px;
-            }
-
-            .service-features ul {
-                grid-template-columns: 1fr;
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="mainNav">
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="main-nav" id="mainNav">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
-                </a>
+                    <img src="assets/kaLOGOOoo.png" alt="Ka Fa Bogaleng Logo">
+                </a>         
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="overlay" id="overlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
         <ul class="mobile-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
         </ul>
     </div>
 
-    <!-- Page Header -->
+   
     <header class="page-header">
-        <div class="container">
-            <h1>Our Services</h1>
-            <p>Comprehensive solutions tailored to empower your business and community</p>
+        <div class="page-header-content">
+            <h1 class="page-title">Our Services</h1>
+            <p class="page-subtitle">Comprehensive solutions tailored to empower your business and community</p>
         </div>
     </header>
 
-    <!-- Services Content -->
-    <section class="services-content">
+    <section class="services-section">
         <div class="container">
             <h2 class="section-title">What We Offer</h2>
             <p class="section-subtitle">At Ka Fa Bogaleng, we provide a diverse range of services designed to meet the unique needs of our clients while fostering community development and empowerment.</p>
             
-            <div class="services-grid">
+            <div class="services-grid" id="servicesGrid">
                 <!-- Service cards will be generated by JavaScript -->
             </div>
+        </div>
+    </section>
 
-            <!-- Service Categories -->
-            <div class="service-categories">
-                <h2 class="section-title">Service Categories</h2>
-                <div class="categories-grid">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h3>Events & Planning</h3>
-                        <p>Professional event management and coordination services</p>
-                        <span class="category-count">2 Services</span>
+    <!-- Service Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Service Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <h3>Construction & Maintenance</h3>
-                        <p>Building, security, and maintenance solutions</p>
-                        <span class="category-count">3 Services</span>
+                    <h3>Events & Planning</h3>
+                    <p>Professional event management and coordination services</p>
+                    <span class="category-count">2 Services</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hard-hat"></i>
                     </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Business Development</h3>
-                        <p>Consulting, research, and enterprise development</p>
-                        <span class="category-count">4 Services</span>
+                    <h3>Construction & Maintenance</h3>
+                    <p>Building, security, and maintenance solutions</p>
+                    <span class="category-count">3 Services</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <h3>Logistics & Supply</h3>
-                        <p>Transport, mining, and catering services</p>
-                        <span class="category-count">3 Services</span>
+                    <h3>Business Development</h3>
+                    <p>Consulting, research, and enterprise development</p>
+                    <span class="category-count">4 Services</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-truck"></i>
                     </div>
+                    <h3>Logistics & Supply</h3>
+                    <p>Transport, mining, and catering services</p>
+                    <span class="category-count">3 Services</span>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Process Section -->
-            <div class="process-section">
-                <div class="container">
-                    <h2 class="section-title">Our Process</h2>
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <h3>Consultation</h3>
-                            <p>We begin by understanding your unique needs and objectives through detailed consultation.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <h3>Planning</h3>
-                            <p>Our team develops a customized plan tailored to your specific requirements and budget.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <h3>Execution</h3>
-                            <p>We implement the plan with precision, ensuring quality and timely delivery of services.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <h3>Support</h3>
-                            <p>We provide ongoing support and follow-up to ensure your complete satisfaction.</p>
-                        </div>
-                    </div>
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We begin by understanding your unique needs and objectives through detailed consultation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>Our team develops a customized plan tailored to your specific requirements and budget.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Execution</h3>
+                    <p>We implement the plan with precision, ensuring quality and timely delivery of services.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Support</h3>
+                    <p>We provide ongoing support and follow-up to ensure your complete satisfaction.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <div class="container">
-                    <div class="cta-content">
-                        <h2>Ready to Get Started?</h2>
-                        <p>Contact us today to discuss how our services can help your business or organization thrive. Let's build something great together.</p>
-                        <div class="cta-buttons">
-                            <a href="contact.html" class="cta-button primary">
-                                <i class="fas fa-envelope"></i> Get In Touch
-                            </a>
-                            <a href="about.html" class="cta-button secondary">
-                                <i class="fas fa-users"></i> Learn More About Us
-                            </a>
-                        </div>
-                    </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="section-title">Ready to Get Started?</h2>
+                <p class="section-subtitle">Contact us today to discuss how our services can help your business or organization thrive. Let's build something great together.</p>
+                <div class="mt-5">
+                    <a href="contact.html" class="cta-button primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="about.html" class="cta-button secondary">
+                        <i class="fas fa-users"></i> Learn More About Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -1041,36 +1090,63 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">
-                <a href="index.html">
-                <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
-                </a>
-                <p>Creating legacies through feminist business excellence since 2019</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <!--<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>-->
-                    <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>-->
-                    <!--<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="assets/kaLOGOOoo.png" alt="Ka Fa Bogaleng Logo">
+                        <p>Creating legacies through feminist business excellence since 2019</p>
+                        <div class="footer-social mt-4">
+                            <h4>Connect With Us</h4>
+                            <div class="social-icons d-flex gap-3">
+                                <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-services">
+                        <h4>Our Services</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="services.html">Business Consulting</a></li>
+                            <li><a href="services.html">Events Management</a></li>
+                            <li><a href="services.html">Construction Services</a></li>
+                            <li><a href="services.html">Catering Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
+            <div class="footer-bottom pt-4 border-top border-light">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">&copy; 2025 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="legal-links text-center text-md-end">
+                            <a href="#">Privacy Policy</a>
+                            <span class="mx-2">|</span>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -1079,294 +1155,314 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuClose = document.getElementById('mobileMenuClose');
-            const overlay = document.getElementById('overlay');
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
 
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
-            overlay.addEventListener('click', closeMobileMenu);
-
-            function closeMobileMenu() {
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            // Navbar Scroll Effect
-            const mainNav = document.getElementById('mainNav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    mainNav.classList.add('scrolled');
-                } else {
-                    mainNav.classList.remove('scrolled');
-                }
-            });
-
-            // Back to Top Button
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
             const backToTop = document.getElementById('backToTop');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-
-            // Service Data
-            const services = [
-                {
-                    title: "Events Planning",
-                    icon: "🎉",
-                    description: "We plan trade events including seminars, conferences, trade shows, executive retreats, and more. Our team ensures every detail is meticulously planned and executed to create memorable experiences.",
-                    features: [
-                        "Seminars and Conferences",
-                        "Trade Shows",
-                        "Executive Retreats and Incentive programs",
-                        "Golf Events",
-                        "Appreciation Events",
-                        "Company Milestones",
-                        "Team Building Events",
-                        "Product Launch Events",
-                        "Board Meetings"
-                    ]
-                },
-                {
-                    title: "Artists Development",
-                    icon: "🎨",
-                    description: "Unearthing talent in fine arts and creating platforms for showcasing beyond Tsantsabane. We nurture creative talent and provide opportunities for artists to thrive.",
-                    features: [
-                        "Architecture",
-                        "Sculpture",
-                        "Painting",
-                        "Music",
-                        "Literature",
-                        "Dance",
-                        "Theatre",
-                        "Cinema",
-                        "Promotion beyond Tsantsabane"
-                    ]
-                },
-                {
-                    title: "Security & Maintenance",
-                    icon: "🛡️",
-                    description: "Home and business protection services through our PSIRA accredited technical partners. We ensure your safety and property maintenance with professional solutions.",
-                    features: [
-                        "Home protection systems",
-                        "Business protection systems",
-                        "Professional guarding services",
-                        "Cybersecurity protection",
-                        "Cleaning services",
-                        "Maintenance services",
-                        "Piping work",
-                        "Steel reinforcement",
-                        "Paving work"
-                    ]
-                },
-                {
-                    title: "Building & Construction",
-                    icon: "🏗️",
-                    description: "Construction services through strategic technical partnerships with skill transfer. We deliver quality construction projects with a focus on community development.",
-                    features: [
-                        "Public engineering",
-                        "Construction engineering",
-                        "Carpentry",
-                        "Plasterwork",
-                        "Scaffold/construction work",
-                        "Stonework",
-                        "Roof work",
-                        "Electrical work",
-                        "Steel construction"
-                    ]
-                },
-                {
-                    title: "Research & Development",
-                    icon: "🔍",
-                    description: "Aligning businesses with changing environments through innovative R&D services. We help organizations adapt and thrive in evolving markets.",
-                    features: [
-                        "New services development",
-                        "New products development",
-                        "Business process innovation",
-                        "New technologies research",
-                        "Client preferences analysis",
-                        "4IR implementation strategies",
-                        "Community talent development",
-                        "Innovation workshops"
-                    ]
-                },
-                {
-                    title: "Transport & Mining",
-                    icon: "🚛",
-                    description: "Transportation services and mining equipment supply through established partners. We provide reliable logistics solutions for various industries.",
-                    features: [
-                        "Mass transportation",
-                        "Mining products transport",
-                        "Fuels and lubricants transport",
-                        "Parcel delivery",
-                        "Excavators supply",
-                        "Drill equipment",
-                        "Conveyor belts",
-                        "PPE supplies",
-                        "Equipment maintenance"
-                    ]
-                },
-                {
-                    title: "Catering",
-                    icon: "🍴",
-                    description: "Exceptional African cuisine and western dishes for corporate and social events. We create culinary experiences that delight and impress.",
-                    features: [
-                        "Weddings catering",
-                        "Corporate events",
-                        "Social events",
-                        "Funerals",
-                        "Private special meals",
-                        "Alfresco settings",
-                        "Mobile catering",
-                        "Traditional township brazil",
-                        "Meal delivery"
-                    ]
-                },
-                {
-                    title: "Business Consulting",
-                    icon: "💼",
-                    description: "Enhancing client processes with preventative measures to avoid costly leakages. We provide strategic guidance to help businesses grow and thrive.",
-                    features: [
-                        "Entity registration",
-                        "Company profiles development",
-                        "Business plans",
-                        "Administrative systems",
-                        "Document management",
-                        "Process enhancement",
-                        "Preventative measures",
-                        "Cost reduction strategies"
-                    ]
-                },
-                {
-                    title: "Branding",
-                    icon: "🖋️",
-                    description: "Developing and maintaining long-lasting brand presence through various media. We help businesses establish strong, recognizable brand identities.",
-                    features: [
-                        "Vehicle branding",
-                        "Marketing/PR branding",
-                        "Event exhibition branding",
-                        "Large format printing",
-                        "Signage",
-                        "Rigging/application installation",
-                        "Billboard structures",
-                        "Corporate branding packages"
-                    ]
-                },
-                {
-                    title: "Enterprise Development",
-                    icon: "📈",
-                    description: "Training, coaching and development programs for entrepreneurs and existing businesses. We foster economic growth through skills development.",
-                    features: [
-                        "Entrepreneurship training",
-                        "Business coaching",
-                        "Finance linkages",
-                        "Business setup assistance",
-                        "Boot camp programs",
-                        "Economic hubs development",
-                        "Retail hubs",
-                        "Shared working spaces",
-                        "Skills development programs"
-                    ]
-                }
-            ];
-
-            // Generate service cards
-            const servicesGrid = document.querySelector('.services-grid');
             
-            services.forEach(service => {
-                const serviceCard = document.createElement('div');
-                serviceCard.className = 'service-card';
-                
-                serviceCard.innerHTML = `
-                    <div class="service-content">
-                        <div class="service-icon">${service.icon}</div>
-                        <h3>${service.title}</h3>
-                        <p>${service.description}</p>
-                        <button class="service-link learn-more" data-service="${service.title.replace(/\s+/g, '-').toLowerCase()}">
-                            Learn more <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                `;
-                
-                servicesGrid.appendChild(serviceCard);
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                nav.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
             });
+        });
 
-            // Modal functionality
-            const modal = document.getElementById('serviceModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalIcon = document.getElementById('modalIcon');
-            const modalDescription = document.getElementById('modalDescription');
-            const modalFeatures = document.getElementById('modalFeatures');
-            const closeModal = document.querySelector('.close-modal');
-            const learnMoreButtons = document.querySelectorAll('.learn-more');
+        // Service Data
+        const services = [
+            {
+                title: "Events Planning",
+                icon: "🎉",
+                description: "We plan trade events including seminars, conferences, trade shows, executive retreats, and more. Our team ensures every detail is meticulously planned and executed to create memorable experiences.",
+                features: [
+                    "Seminars and Conferences",
+                    "Trade Shows",
+                    "Executive Retreats and Incentive programs",
+                    "Golf Events",
+                    "Appreciation Events",
+                    "Company Milestones",
+                    "Team Building Events",
+                    "Product Launch Events",
+                    "Board Meetings"
+                ]
+            },
+            {
+                title: "Artists Development",
+                icon: "🎨",
+                description: "Unearthing talent in fine arts and creating platforms for showcasing beyond Tsantsabane. We nurture creative talent and provide opportunities for artists to thrive.",
+                features: [
+                    "Architecture",
+                    "Sculpture",
+                    "Painting",
+                    "Music",
+                    "Literature",
+                    "Dance",
+                    "Theatre",
+                    "Cinema",
+                    "Promotion beyond Tsantsabane"
+                ]
+            },
+            {
+                title: "Security & Maintenance",
+                icon: "🛡️",
+                description: "Home and business protection services through our PSIRA accredited technical partners. We ensure your safety and property maintenance with professional solutions.",
+                features: [
+                    "Home protection systems",
+                    "Business protection systems",
+                    "Professional guarding services",
+                    "Cybersecurity protection",
+                    "Cleaning services",
+                    "Maintenance services",
+                    "Piping work",
+                    "Steel reinforcement",
+                    "Paving work"
+                ]
+            },
+            {
+                title: "Building & Construction",
+                icon: "🏗️",
+                description: "Construction services through strategic technical partnerships with skill transfer. We deliver quality construction projects with a focus on community development.",
+                features: [
+                    "Public engineering",
+                    "Construction engineering",
+                    "Carpentry",
+                    "Plasterwork",
+                    "Scaffold/construction work",
+                    "Stonework",
+                    "Roof work",
+                    "Electrical work",
+                    "Steel construction"
+                ]
+            },
+            {
+                title: "Research & Development",
+                icon: "🔍",
+                description: "Aligning businesses with changing environments through innovative R&D services. We help organizations adapt and thrive in evolving markets.",
+                features: [
+                    "New services development",
+                    "New products development",
+                    "Business process innovation",
+                    "New technologies research",
+                    "Client preferences analysis",
+                    "4IR implementation strategies",
+                    "Community talent development",
+                    "Innovation workshops"
+                ]
+            },
+            {
+                title: "Transport & Mining",
+                icon: "🚛",
+                description: "Transportation services and mining equipment supply through established partners. We provide reliable logistics solutions for various industries.",
+                features: [
+                    "Mass transportation",
+                    "Mining products transport",
+                    "Fuels and lubricants transport",
+                    "Parcel delivery",
+                    "Excavators supply",
+                    "Drill equipment",
+                    "Conveyor belts",
+                    "PPE supplies",
+                    "Equipment maintenance"
+                ]
+            },
+            {
+                title: "Catering",
+                icon: "🍴",
+                description: "Exceptional African cuisine and western dishes for corporate and social events. We create culinary experiences that delight and impress.",
+                features: [
+                    "Weddings catering",
+                    "Corporate events",
+                    "Social events",
+                    "Funerals",
+                    "Private special meals",
+                    "Alfresco settings",
+                    "Mobile catering",
+                    "Traditional township brazil",
+                    "Meal delivery"
+                ]
+            },
+            {
+                title: "Business Consulting",
+                icon: "💼",
+                description: "Enhancing client processes with preventative measures to avoid costly leakages. We provide strategic guidance to help businesses grow and thrive.",
+                features: [
+                    "Entity registration",
+                    "Company profiles development",
+                    "Business plans",
+                    "Administrative systems",
+                    "Document management",
+                    "Process enhancement",
+                    "Preventative measures",
+                    "Cost reduction strategies"
+                ]
+            },
+            {
+                title: "Branding",
+                icon: "🖋️",
+                description: "Developing and maintaining long-lasting brand presence through various media. We help businesses establish strong, recognizable brand identities.",
+                features: [
+                    "Vehicle branding",
+                    "Marketing/PR branding",
+                    "Event exhibition branding",
+                    "Large format printing",
+                    "Signage",
+                    "Rigging/application installation",
+                    "Billboard structures",
+                    "Corporate branding packages"
+                ]
+            },
+            {
+                title: "Enterprise Development",
+                icon: "📈",
+                description: "Training, coaching and development programs for entrepreneurs and existing businesses. We foster economic growth through skills development.",
+                features: [
+                    "Entrepreneurship training",
+                    "Business coaching",
+                    "Finance linkages",
+                    "Business setup assistance",
+                    "Boot camp programs",
+                    "Economic hubs development",
+                    "Retail hubs",
+                    "Shared working spaces",
+                    "Skills development programs"
+                ]
+            }
+        ];
 
-            learnMoreButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const serviceId = this.getAttribute('data-service');
-                    const service = services.find(s => s.title.replace(/\s+/g, '-').toLowerCase() === serviceId);
+        // Generate service cards
+        const servicesGrid = document.getElementById('servicesGrid');
+        
+        services.forEach(service => {
+            const serviceCard = document.createElement('div');
+            serviceCard.className = 'service-card';
+            
+            serviceCard.innerHTML = `
+                <div class="service-content">
+                    <div class="service-icon">${service.icon}</div>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                    <button class="service-link learn-more" data-service="${service.title.replace(/\s+/g, '-').toLowerCase()}">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+            
+            servicesGrid.appendChild(serviceCard);
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('serviceModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const closeModal = document.querySelector('.close-modal');
+        const learnMoreButtons = document.querySelectorAll('.learn-more');
+
+        learnMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceId = this.getAttribute('data-service');
+                const service = services.find(s => s.title.replace(/\s+/g, '-').toLowerCase() === serviceId);
+                
+                if (service) {
+                    modalTitle.textContent = service.title;
+                    modalIcon.textContent = service.icon;
+                    modalDescription.innerHTML = `<p>${service.description}</p>`;
                     
-                    if (service) {
-                        modalTitle.textContent = service.title;
-                        modalIcon.textContent = service.icon;
-                        modalDescription.innerHTML = `<p>${service.description}</p>`;
-                        
-                        modalFeatures.innerHTML = '';
-                        service.features.forEach(feature => {
-                            const li = document.createElement('li');
-                            li.textContent = feature;
-                            modalFeatures.appendChild(li);
-                        });
-                        
-                        modal.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
+                    modalFeatures.innerHTML = '';
+                    service.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        modalFeatures.appendChild(li);
+                    });
+                    
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
             });
+        });
 
-            closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-            });
+            }
+        });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
                 }
             });
+        });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        closeMobileMenu();
-                    }
-                });
+        // Add animation on scroll for elements
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
             });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .category-card, .process-step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter form handler
+        document.querySelector('.footer-newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+            e.target.reset();
         });
     </script>
 </body>

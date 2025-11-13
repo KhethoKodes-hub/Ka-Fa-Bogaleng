@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Ka Fa Bogaleng | Empowering Through Business</title>
+    <title>About Us - Ka Fa Bogaleng | Empowering Through Business Excellence</title>
+    <meta name="description" content="Learn about Ka Fa Bogaleng - A 100% black owned female company founded in 2019, dedicated to empowering communities through business excellence.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon=" type="image/png" href="assets/kaLOGOOoo.png">
+
     <style>
         * {
             margin: 0;
@@ -151,8 +154,8 @@
 
         /* Page Header */
         .page-header {
-            min-height: 60vh;
-            background: var(--gradient-overlay), url('./assets/Kafaher.png') center/cover;
+            min-height: 70vh;
+            background: var(--gradient-overlay), url('./assets/africancom.png') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -227,6 +230,34 @@
             text-shadow: 1px 2px 10px rgba(0,0,0,0.3);
         }
 
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(74, 144, 226, 0.1);
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
         /* About Section */
         .about-section {
             padding: 7rem 2rem;
@@ -260,6 +291,14 @@
             height: 4px;
             background: var(--gradient-primary);
             border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--neutral-medium);
+            margin-bottom: 4rem;
+            margin-top: 1rem;
         }
 
         .image-collage {
@@ -430,6 +469,7 @@
         .team-member {
             text-align: center;
             margin-bottom: 3rem;
+            transition: all 0.4s ease;
         }
 
         .team-photo-container {
@@ -443,6 +483,7 @@
             border: 5px solid transparent;
             background: var(--gradient-primary);
             background-clip: padding-box;
+            position: relative;
         }
 
         .team-photo {
@@ -452,6 +493,25 @@
             transition: transform 0.5s ease;
         }
 
+        .team-photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-overlay);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .team-photo-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
         .team-photo-container:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 20px 50px rgba(126, 217, 87, 0.4);
@@ -459,6 +519,10 @@
 
         .team-photo-container:hover .team-photo {
             transform: scale(1.1);
+        }
+
+        .team-photo-container:hover .team-photo-overlay {
+            opacity: 1;
         }
 
         .team-member h3 {
@@ -474,6 +538,30 @@
             font-weight: 600;
             color: var(--neutral-medium);
             margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .team-social a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(126, 217, 87, 0.4);
         }
 
         /* Timeline Section */
@@ -559,17 +647,55 @@
             margin-bottom: 0.5rem;
         }
 
-        /* CTA Section */
-        .cta-section {
+        /* Impact Section */
+        .impact-section {
             padding: 7rem 2rem;
-            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600') center/cover fixed;
-            text-align: center;
+            background: var(--gradient-overlay), url('./assets/africanprint.png') center/cover fixed;
             color: var(--white);
         }
 
-        .cta-section .section-title {
-            color: var(--white);
-            -webkit-text-fill-color: var(--white);
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-stat {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            min-width: 200px;
+        }
+
+        .impact-stat:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(126, 217, 87, 0.3);
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .impact-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(107, 182, 255, 0.08) 100%);
+            text-align: center;
         }
 
         .cta-button {
@@ -584,6 +710,7 @@
             position: relative;
             overflow: hidden;
             border: none;
+            margin: 0.5rem;
         }
 
         .cta-button::before {
@@ -617,21 +744,21 @@
 
         .cta-button.secondary {
             background: transparent;
-            color: var(--white);
-            border: 3px solid var(--white);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            color: var(--primary-blue);
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
         }
 
         .cta-button.secondary:hover {
-            background: var(--white);
-            color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: var(--white);
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
         }
 
         /* Footer */
         .main-footer {
-            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600') center/cover;
+            background: var(--gradient-overlay), url('./assets/planning.png') center/cover;
             color: var(--white);
             padding: 5rem 2rem 2rem;
         }
@@ -686,6 +813,101 @@
             box-shadow: 0 10px 30px rgba(126, 217, 87, 0.5);
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+            transition: all 0.4s ease;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(126, 217, 87, 0.5);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gradient-primary);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--neutral-dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -736,6 +958,11 @@
             .timeline-item:nth-child(even) .timeline-content::after {
                 left: 15px;
             }
+
+            .impact-stats {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -746,17 +973,31 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
+                    <img src="assets/kaLOGOOoo.png" alt="Ka Fa Bogaleng Logo">
                 </a>         
             </div>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+            <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+   
     </nav>
 
     <header class="page-header">
@@ -769,11 +1010,12 @@
     <section class="about-section">
         <div class="container">
             <h2 class="section-title">About Ka Fa Bogaleng</h2>
+            <p class="section-subtitle">A 100% black owned female company empowering communities since 2019</p>
             <div class="row g-5 align-items-center mt-5">
                 <div class="col-lg-6">
                     <div class="image-collage">
-                        <img src="assets/community.png" alt="Ka Fa Bogaleng team" class="collage-main">
-                    </div>
+                        <img src="assets/team2.png" alt="Ka Fa Bogaleng team" class="collage-main">
+                    </div>ty.pn
                 </div>
                 <div class="col-lg-6">
                     <div class="about-text">
@@ -825,7 +1067,7 @@
         </div>
     </section>
 
-    <section class="team-section">
+    <!--<section class="team-section">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
             <p class="section-subtitle">Meet the passionate women driving our vision forward</p>
@@ -835,35 +1077,56 @@
                     <div class="team-member">
                         <div class="team-photo-container">
                             <img src="assets/millicent.jpg" alt="Millicent - Founder" class="team-photo">
+                            <div class="team-photo-overlay">
+                                <i class="fas fa-plus"></i>
+                            </div>
                         </div>
                         <h3>Millicent Bogatsu</h3>
                         <p class="role">Founder & CEO</p>
                         <p>With over 15 years of business experience, Millicent founded Ka Fa Bogaleng to create opportunities for women in business and transform communities through sustainable development.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="team-member">
                         <div class="team-photo-container">
                             <img src="assets/tsholofelo.jpg" alt="Tsholofelo - Co-founder" class="team-photo">
+                            <div class="team-photo-overlay">
+                                <i class="fas fa-plus"></i>
+                            </div>
                         </div>
                         <h3>Tsholofelo Bogatsu</h3>
                         <p class="role">Co-founder & Operations Director</p>
                         <p>Tsholofelo brings expertise in operations management and strategic planning, ensuring our services exceed client expectations while maintaining our core values.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="team-member">
                         <div class="team-photo-container">
                             <img src="assets/team-member.jpg" alt="Team Member" class="team-photo">
+                            <div class="team-photo-overlay">
+                                <i class="fas fa-plus"></i>
+                            </div>
                         </div>
                         <h3>Our Dedicated Team</h3>
                         <p class="role">Experts & Specialists</p>
                         <p>Our diverse team of professionals brings specialized skills across consulting, events management, construction, and catering services, united by our commitment to excellence.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <section class="timeline-section">
         <div class="container">
@@ -917,13 +1180,39 @@
         </div>
     </section>
 
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <p class="section-subtitle">Creating meaningful change in communities and businesses</p>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="impact-number" data-count="6">0</div>
+                    <div class="impact-label">Years of Excellence</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" data-count="150">0</div>
+                    <div class="impact-label">Projects Completed</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" data-count="50">0</div>
+                    <div class="impact-label">Happy Clients</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" data-count="4">0</div>
+                    <div class="impact-label">Service Areas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="container">
             <h2 class="section-title">Join Our Journey</h2>
-            <p class="section-subtitle" style="color: var(--light-green);">Partner with us to create lasting impact and transform communities</p>
+            <p class="section-subtitle">Partner with us to create lasting impact and transform communities</p>
             <div class="mt-5">
-                <a href="index.html#contact" class="cta-button primary me-3">Get In Touch</a>
-                <a href="index.html#services" class="cta-button secondary">Explore Services</a>
+                <a href="contact.html" class="cta-button primary">Get In Touch</a>
+                <a href="services.html" class="cta-button secondary">Explore Services</a>
             </div>
         </div>
     </section>
@@ -933,15 +1222,15 @@
             <div class="row g-5 mb-5">
                 <div class="col-lg-4">
                     <div class="footer-logo">
-                        <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
+                        <img src="assets/kaLOGOOoo.png" alt="Ka Fa Bogaleng Logo">
                         <p>Creating legacies through feminist business excellence since 2019</p>
                         <div class="footer-social mt-4">
                             <h4>Connect With Us</h4>
                             <div class="social-icons d-flex gap-3">
                                 <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
                             </div>
                         </div>
                     </div>
@@ -968,15 +1257,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="footer-newsletter">
-                        <h4>Stay Updated</h4>
-                        <p>Subscribe to our newsletter for the latest updates</p>
-                        <form class="footer-newsletter-form">
-                            <input type="email" class="form-control mb-2" placeholder="Your email address" required>
-                            <button type="submit" class="w-100">Subscribe</button>
-                        </form>
-                    </div>
+                
                 </div>
             </div>
             <div class="footer-bottom pt-4 border-top border-light">
@@ -996,6 +1277,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         // Scroll progress bar
@@ -1009,10 +1295,14 @@
         // Navigation scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
+            const backToTop = document.getElementById('backToTop');
+            
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
+                backToTop.classList.add('visible');
             } else {
                 nav.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
             }
         });
 
@@ -1026,26 +1316,83 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.remove('active');
                 }
             });
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Animated counter for impact stats
+        function animateCounter() {
+            const counters = document.querySelectorAll('.impact-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Initialize counter animation when impact section is in view
+        const impactSection = document.querySelector('.impact-section');
         const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(impactSection);
+
+        // Add animation on scroll for other elements
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card, .mission, .vision, .values, .team-member, .timeline-content').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.mission, .vision, .values, .team-member, .timeline-content, .impact-stat').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Newsletter form handler
+        document.querySelector('.footer-newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+            e.target.reset();
         });
     </script>
 </body>
