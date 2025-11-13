@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ka Fa Bogaleng | Empowering Through Business</title>
+    <!--<title>Ka Fa Bogaleng | Empowering Through Business</title>-->
+        <title>Under Construction | NomNom</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,14 +17,19 @@
         }
 
         :root {
-            --primary-color: #4A148C;
-            --secondary-color: #FF6D00;
-            --accent-color: #FFD600;
-            --neutral-dark: #333333;
-            --neutral-medium: #757575;
-            --neutral-light: #F5F5F5;
+            --primary-blue: #4A90E2;
+            --primary-green: #7ED957;
+            --light-blue: #6BB6FF;
+            --light-green: #A8E6A1;
+            --dark-blue: #2C5AA0;
+            --dark-green: #5CB85C;
+            --neutral-dark: #2C3E50;
+            --neutral-medium: #7F8C8D;
+            --neutral-light: #ECF0F1;
             --white: #FFFFFF;
-            --black: #000000;
+            --gradient-primary: linear-gradient(135deg, #4A90E2 0%, #7ED957 100%);
+            --gradient-secondary: linear-gradient(135deg, #6BB6FF 0%, #A8E6A1 100%);
+            --gradient-overlay: linear-gradient(135deg, rgba(74, 144, 226, 0.9) 0%, rgba(126, 217, 87, 0.85) 100%);
         }
 
         body {
@@ -32,21 +40,35 @@
             overflow-x: hidden;
         }
 
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: 0 2px 10px rgba(74, 144, 226, 0.5);
+        }
+
         /* Modern Navigation */
         .main-nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 30px rgba(74, 144, 226, 0.1);
             z-index: 1000;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .main-nav.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+            padding: 0.3rem 0;
+            box-shadow: 0 8px 40px rgba(74, 144, 226, 0.2);
+            background: rgba(255, 255, 255, 1);
         }
 
         .nav-container {
@@ -60,41 +82,45 @@
 
         .logo img {
             height: 80px;
-            width: 80px;
+            width: auto;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
         }
 
         .logo img:hover {
-            transform: scale(1.08) rotate(2deg);
-            filter: drop-shadow(0 8px 16px rgba(74, 20, 140, 0.3));
+            transform: scale(1.08) translateY(-3px);
+            filter: drop-shadow(0 8px 20px rgba(126, 217, 87, 0.4));
         }
 
         .mobile-menu-toggle {
             display: none;
-            background: none;
+            background: var(--gradient-primary);
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary-color);
-            transition: transform 0.3s ease;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
 
         .mobile-menu-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 3rem;
+            margin: 0;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--neutral-dark);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
@@ -108,13 +134,16 @@
             transform: translateX(-50%);
             width: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient-primary);
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 2px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             transform: translateY(-2px);
         }
 
@@ -122,11 +151,10 @@
             width: 100%;
         }
 
-        /* Hero Section with Modern Animations */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(44, 36, 22, 0.88), rgba(139, 69, 19, 0.78)),
-                        url('./assets/Kafaher.png') center/cover;
+            background: var(--gradient-overlay), url('./assets/Kafaher.png') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -143,13 +171,31 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15), transparent 60%);
+            background: radial-gradient(circle at 30% 50%, rgba(126, 217, 87, 0.2), transparent 70%);
             animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.3), transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+            border-radius: 50%;
         }
 
         @keyframes pulse {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .hero-content {
@@ -169,18 +215,19 @@
             font-weight: 700;
             color: var(--white);
             margin-bottom: 1.5rem;
-            text-shadow: 2px 4px 30px rgba(0,0,0,0.4);
+            text-shadow: 2px 4px 30px rgba(0,0,0,0.3);
             line-height: 1.2;
             transition: transform 0.3s ease;
         }
 
         .proverb-text:hover {
             transform: scale(1.02);
+            text-shadow: 3px 6px 40px rgba(74, 144, 226, 0.5);
         }
 
         .proverb-translation {
             font-size: 1.6rem;
-            color: var(--accent-color);
+            color: var(--light-green);
             font-style: italic;
             font-weight: 300;
             text-shadow: 1px 2px 10px rgba(0,0,0,0.3);
@@ -204,6 +251,7 @@
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            border: none;
         }
 
         .cta-button::before {
@@ -214,64 +262,46 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
             transition: width 0.6s ease, height 0.6s ease;
         }
 
         .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
         }
 
         .cta-button.primary {
-            background: linear-gradient(135deg, var(--primary-color), #6A1B9A);
+            background: var(--gradient-primary);
             color: var(--white);
-            box-shadow: 0 10px 40px rgba(74, 20, 140, 0.4);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.4);
         }
 
         .cta-button.primary:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(74, 20, 140, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(126, 217, 87, 0.5);
         }
 
         .cta-button.secondary {
             background: transparent;
             color: var(--white);
-            border: 2px solid var(--white);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+            border: 3px solid var(--white);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
         .cta-button.secondary:hover {
             background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+            color: var(--primary-blue);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
         }
 
-        /* About Section with Modern Cards */
+        /* About Section */
         .about-section {
             padding: 7rem 2rem;
-            background: linear-gradient(135deg, rgba(249, 247, 244, 0.98), rgba(232, 199, 158, 0.4)),
-                        url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600') center/cover fixed;
+            background: linear-gradient(135deg, rgba(236, 240, 241, 0.5) 0%, rgba(168, 230, 161, 0.1) 100%);
             position: relative;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.94);
-        }
-
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .section-title {
@@ -279,7 +309,10 @@
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 1rem;
-            color: var(--neutral-dark);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 700;
             position: relative;
             display: inline-block;
@@ -295,16 +328,8 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient-primary);
             border-radius: 2px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            margin-top: 5rem;
         }
 
         .image-collage {
@@ -312,13 +337,34 @@
             height: 600px;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 70px rgba(74, 144, 226, 0.2);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            background: var(--gradient-primary);
+            background-clip: padding-box;
+        }
+
+        .image-collage::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+            mix-blend-mode: overlay;
         }
 
         .image-collage:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 40px 90px rgba(0,0,0,0.25);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 40px 90px rgba(126, 217, 87, 0.3);
+        }
+
+        .image-collage:hover::before {
+            opacity: 0.3;
         }
 
         .collage-main {
@@ -329,41 +375,31 @@
         }
 
         .image-collage:hover .collage-main {
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
 
         .about-text h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
         }
 
         .about-text h3:hover {
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #555;
-            margin-bottom: 2rem;
-        }
-
-        .mission-vision {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 3rem 0;
+            transform: translateX(10px);
         }
 
         .mission, .vision {
             padding: 2.5rem;
             background: var(--white);
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.1);
+            border-left: 5px solid transparent;
+            border-image: var(--gradient-primary) 1;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -376,7 +412,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(74, 20, 140, 0.05), transparent);
+            background: var(--gradient-secondary);
+            opacity: 0.05;
             transition: left 0.6s ease;
         }
 
@@ -385,43 +422,45 @@
         }
 
         .mission:hover, .vision:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transform: translateY(-8px) translateX(5px);
+            box-shadow: 0 20px 60px rgba(126, 217, 87, 0.2);
             border-left-width: 8px;
         }
 
         .mission h4, .vision h4 {
             font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
-
-        .mission:hover h4, .vision:hover h4 {
-            color: var(--primary-color);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .values {
-            background: linear-gradient(135deg, var(--primary-color), #6A1B9A);
+            background: var(--gradient-primary);
             padding: 3rem;
             border-radius: 20px;
             color: var(--white);
-            box-shadow: 0 20px 60px rgba(74, 20, 140, 0.3);
+            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .values::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 50%);
+            animation: rotate 15s linear infinite;
         }
 
         .values:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 80px rgba(74, 20, 140, 0.4);
-        }
-
-        .values h4 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .values ul {
-            list-style: none;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(126, 217, 87, 0.4);
         }
 
         .values li {
@@ -433,53 +472,48 @@
             transition: all 0.3s ease;
             border-radius: 10px;
             padding-left: 1rem;
+            position: relative;
         }
 
         .values li:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(15px);
+            padding-left: 1.5rem;
         }
 
         .values li i {
-            color: var(--accent-color);
+            color: var(--light-green);
             font-size: 1.3rem;
             transition: transform 0.3s ease;
         }
 
         .values li:hover i {
-            transform: scale(1.2) rotate(10deg);
+            transform: scale(1.3) rotate(360deg);
         }
 
-        /* Services Section with Modern Cards */
+        /* Services Section */
         .services-section {
             padding: 7rem 2rem;
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.98), rgba(212, 175, 55, 0.08));
-            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(107, 182, 255, 0.08) 100%);
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.3rem;
-            color: #666;
+            color: var(--neutral-medium);
             margin-bottom: 4rem;
             margin-top: 1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
         }
 
         .service-card {
             background: var(--white);
             padding: 3.5rem 2.5rem;
             border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.1);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
-            border-top: 5px solid var(--primary-color);
+            border-top: 5px solid transparent;
+            border-image: var(--gradient-primary) 1;
             position: relative;
             overflow: hidden;
         }
@@ -491,25 +525,44 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient-primary);
             transform: scaleX(0);
             transition: transform 0.5s ease;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient-secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
         }
 
         .service-card:hover::before {
             transform: scaleX(1);
         }
 
+        .service-card:hover::after {
+            width: 500px;
+            height: 500px;
+        }
+
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(126, 217, 87, 0.2);
         }
 
         .service-icon {
             width: 90px;
             height: 90px;
             margin: 0 auto 2rem;
-            background: linear-gradient(135deg, var(--primary-color), #6A1B9A);
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -517,108 +570,90 @@
             font-size: 2.2rem;
             color: var(--white);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.3);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.1);
-            box-shadow: 0 15px 40px rgba(74, 20, 140, 0.5);
+            transform: rotateY(360deg) scale(1.15);
+            box-shadow: 0 15px 40px rgba(126, 217, 87, 0.5);
+            background: var(--gradient-secondary);
         }
 
         .service-card h3 {
             font-size: 1.6rem;
             margin-bottom: 1.2rem;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card:hover h3 {
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            transform: scale(1.05);
         }
 
         .service-link {
-            color: var(--primary-color);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .service-link:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
+            transform: translateX(10px);
         }
 
-        .services-cta {
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        /* Contact Section with Modern Form */
+        /* Contact Section */
         .contact-section {
             padding: 7rem 2rem;
-            background: linear-gradient(135deg, rgba(44, 36, 22, 0.92), rgba(139, 69, 19, 0.88)),
-                        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600') center/cover fixed;
+            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600') center/cover fixed;
             position: relative;
         }
 
         .contact-section .section-title {
             color: var(--white);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
+            -webkit-text-fill-color: var(--white);
         }
 
         .contact-form {
             background: var(--white);
             padding: 3.5rem;
             border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 80px rgba(74, 144, 226, 0.3);
             transition: transform 0.4s ease;
         }
 
         .contact-form:hover {
-            transform: translateY(-5px);
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
+            transform: translateY(-10px);
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 0.7rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 600;
-            color: var(--neutral-dark);
-            transition: color 0.3s ease;
-        }
-
-        .form-group:focus-within label {
-            color: var(--primary-color);
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            width: 100%;
-            padding: 1.2rem;
             border: 2px solid #e0e0e0;
             border-radius: 15px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            padding: 1.2rem;
             transition: all 0.3s ease;
             background: var(--neutral-light);
         }
@@ -627,40 +662,26 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-image: var(--gradient-primary) 1;
             background: var(--white);
-            box-shadow: 0 5px 20px rgba(74, 20, 140, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-        }
-
-        .contact-info {
-            color: var(--white);
-        }
-
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.2);
+            transform: translateY(-3px);
         }
 
         .contact-method {
             margin-bottom: 2rem;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-method:hover {
-            background: rgba(255, 255, 255, 0.18);
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(126, 217, 87, 0.3);
         }
 
         .contact-method h4 {
@@ -669,83 +690,41 @@
             gap: 1rem;
             margin-bottom: 1rem;
             font-size: 1.3rem;
-            color: var(--accent-color);
+            color: var(--light-green);
         }
 
         .contact-method h4 i {
             transition: transform 0.3s ease;
+            color: var(--light-blue);
         }
 
         .contact-method:hover h4 i {
-            transform: scale(1.2) rotate(10deg);
+            transform: scale(1.3) rotate(360deg);
         }
 
-        .contact-method p,
-        .contact-method a {
-            color: var(--white);
-            text-decoration: none;
-            line-height: 1.9;
-            transition: all 0.3s ease;
-        }
-
-        .contact-method a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
-        }
-
-        /* Footer with Modern Design */
+        /* Footer */
         .main-footer {
-            background: linear-gradient(135deg, rgba(44, 36, 22, 0.98), rgba(139, 69, 19, 0.95)),
-                        url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600') center/cover;
+            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600') center/cover;
             color: var(--white);
             padding: 5rem 2rem 2rem;
         }
 
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
         .footer-logo img {
             height: 100px;
-            width: 100px;
+            width: auto;
             margin-bottom: 1.5rem;
             transition: transform 0.4s ease;
+            filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.3));
         }
 
         .footer-logo:hover img {
-            transform: scale(1.05) rotate(3deg);
-        }
-
-        .footer-logo p {
-            color: var(--accent-color);
-            line-height: 1.9;
-        }
-
-        .footer-social h4,
-        .footer-links h4,
-        .footer-services h4,
-        .footer-newsletter h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            transform: scale(1.08) rotate(-3deg);
         }
 
         .social-icons a {
             width: 45px;
             height: 45px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -753,65 +732,18 @@
             justify-content: center;
             color: var(--white);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-icons a:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(74, 20, 140, 0.4);
-        }
-
-        .footer-links ul,
-        .footer-services ul {
-            list-style: none;
-        }
-
-        .footer-links li,
-        .footer-services li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a,
-        .footer-services a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .footer-links a:hover,
-        .footer-services a:hover {
-            color: var(--white);
-            transform: translateX(5px);
-        }
-
-        .footer-newsletter p {
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .footer-newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer-newsletter-form input:focus {
-            outline: none;
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-8px) scale(1.15) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(126, 217, 87, 0.5);
         }
 
         .footer-newsletter-form button {
-            background: linear-gradient(135deg, var(--primary-color), #6A1B9A);
+            background: var(--gradient-primary);
             border: none;
             padding: 1rem 2rem;
             border-radius: 25px;
@@ -819,40 +751,12 @@
             color: var(--white);
             font-weight: 600;
             transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(74, 20, 140, 0.3);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.3);
         }
 
         .footer-newsletter-form button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.5);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--accent-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .legal-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .legal-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .legal-links a:hover {
-            color: var(--white);
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(126, 217, 87, 0.5);
         }
 
         @keyframes fadeInUp {
@@ -864,18 +768,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            z-index: 9999;
-            transition: width 0.1s ease;
         }
 
         /* Responsive Design */
@@ -892,35 +784,8 @@
                 font-size: 2.2rem;
             }
 
-            .proverb-translation {
-                font-size: 1.2rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .mission-vision {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .legal-links {
-                flex-direction: column;
-                gap: 1rem;
             }
         }
     </style>
@@ -939,7 +804,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
@@ -952,39 +817,43 @@
                 <p class="proverb-translation">"A mother holds the knife at the sharp end"</p>
             </div>
             <div class="hero-buttons">
-                <a href="#services" class="cta-button primary">Explore Our Services</a>
-                <a href="#contact" class="cta-button secondary">Get In Touch</a>
+                <a href="services.html" class="cta-button primary">Explore Our Services</a>
+                <a href="contact.html" class="cta-button secondary">Get In Touch</a>
             </div>
         </div>
     </header>
 
     <section id="about" class="about-section">
-        <div class="section-container">
+        <div class="container">
             <h2 class="section-title">About Us</h2>
-            <div class="about-grid">
-                <div class="about-image">
+            <div class="row g-5 align-items-center mt-5">
+                <div class="col-lg-6">
                     <div class="image-collage">
                         <img src="assets/community.png" alt="Ka Fa Bogaleng team" class="collage-main">
                     </div>
                 </div>
-                <div class="about-text">
+                <div class="col-lg-6">
                     <h3>Our Story</h3>
                     <p>Ka Fa Bogaleng (Pty) Ltd is a 100% black owned female company founded on the 02 July 2019 in Tsantsabane. We are a multi-dimensional company rendering different services across various industries with a commitment to excellence and empowerment.</p>
                     
-                    <div class="mission-vision">
-                        <div class="mission">
-                            <h4>Our Mission</h4>
-                            <p>Render flawless services to our clients, build and maintain long lasting customer relationships and become partners of choice in all the industries we operate in.</p>
+                    <div class="row g-4 my-4">
+                        <div class="col-md-6">
+                            <div class="mission">
+                                <h4>Our Mission</h4>
+                                <p>Render flawless services to our clients, build and maintain long lasting customer relationships and become partners of choice in all the industries we operate in.</p>
+                            </div>
                         </div>
-                        <div class="vision">
-                            <h4>Our Vision</h4>
-                            <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies that transform communities.</p>
+                        <div class="col-md-6">
+                            <div class="vision">
+                                <h4>Our Vision</h4>
+                                <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies that transform communities.</p>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="values">
                         <h4>Our Core Values</h4>
-                        <ul>
+                        <ul class="list-unstyled">
                             <li><i class="fas fa-heart"></i> Family life and community</li>
                             <li><i class="fas fa-hands-helping"></i> Sustainable development</li>
                             <li><i class="fas fa-balance-scale"></i> Ethical business conduct</li>
@@ -998,106 +867,118 @@
     </section>
 
     <section id="services" class="services-section">
-        <div class="section-container">
+        <div class="container">
             <h2 class="section-title">Our Services</h2>
             <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Business Consulting</h3>
+                        <p>Strategic guidance to help your business grow and thrive in competitive markets.</p>
+                        <a href="contact.html" class="service-link">Learn more →</a>
                     </div>
-                    <h3>Business Consulting</h3>
-                    <p>Strategic guidance to help your business grow and thrive in competitive markets.</p>
-                    <a href="#contact" class="service-link">Learn more →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Events Management</h3>
+                        <p>Memorable events perfectly executed from conception to completion.</p>
+                        <a href="contact.html" class="service-link">Learn more →</a>
                     </div>
-                    <h3>Events Management</h3>
-                    <p>Memorable events perfectly executed from conception to completion.</p>
-                    <a href="#contact" class="service-link">Learn more →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Construction Services</h3>
+                        <p>Quality construction and project management for all your building needs.</p>
+                        <a href="contact.html" class="service-link">Learn more →</a>
                     </div>
-                    <h3>Construction Services</h3>
-                    <p>Quality construction and project management for all your building needs.</p>
-                    <a href="#contact" class="service-link">Learn more →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Catering Services</h3>
+                        <p>Exquisite culinary experiences for corporate and private events.</p>
+                        <a href="contact.html" class="service-link">Learn more →</a>
                     </div>
-                    <h3>Catering Services</h3>
-                    <p>Exquisite culinary experiences for corporate and private events.</p>
-                    <a href="#contact" class="service-link">Learn more →</a>
                 </div>
             </div>
-            <div class="services-cta">
-                <a href="#contact" class="cta-button primary">View All Services</a>
+            <div class="text-center mt-5">
+                <a href="contact.html" class="cta-button primary">View All Services</a>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="section-container">
+        <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="consulting">Business Consulting</option>
-                                <option value="events">Events Management</option>
-                                <option value="construction">Construction Services</option>
-                                <option value="catering">Catering Services</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button primary">Send Message</button>
-                    </form>
+            <div class="row g-5 mt-4">
+                <div class="col-lg-7">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group mb-4">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="phone">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="service">Service Interested In</label>
+                                <select class="form-select" id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="consulting">Business Consulting</option>
+                                    <option value="events">Events Management</option>
+                                    <option value="construction">Construction Services</option>
+                                    <option value="catering">Catering Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button primary w-100">Send Message</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <div class="contact-method">
-                        <h4><i class="fas fa-phone-alt"></i> Phone</h4>
-                        <p>Millicent: <a href="tel:0785174608">078 517 4608</a></p>
-                        <p>Tsholofelo: <a href="tel:0761880124">076 188 0124</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <h4><i class="fas fa-envelope"></i> Email</h4>
-                        <p><a href="mailto:info@kafabogaleng.co.za">info@kafabogaleng.co.za</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
-                        <p>7113 Albertina Sisulu Street<br>
-                        Postdene,<br>
-                        Postmasburg, NC</p>
-                    </div>
-                    <div class="contact-method">
-                        <h4><i class="fas fa-clock"></i> Business Hours</h4>
-                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
-                        Saturday: 9:00 AM - 1:00 PM</p>
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-method">
+                            <h4><i class="fas fa-phone-alt"></i> Phone</h4>
+                            <p>Millicent: <a href="tel:0785174608">078 517 4608</a></p>
+                            <p>Tsholofelo: <a href="tel:0761880124">076 188 0124</a></p>
+                        </div>
+                        <div class="contact-method">
+                            <h4><i class="fas fa-envelope"></i> Email</h4>
+                            <p><a href="mailto:info@kafabogaleng.co.za">info@kafabogaleng.co.za</a></p>
+                        </div>
+                        <div class="contact-method">
+                            <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
+                            <p>7113 Albertina Sisulu Street<br>
+                            Postdene,<br>
+                            Postmasburg, NC</p>
+                        </div>
+                        <div class="contact-method">
+                            <h4><i class="fas fa-clock"></i> Business Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1105,53 +986,74 @@
     </section>
 
     <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
-                <p>Creating legacies through feminist business excellence since 2019</p>
-                <div class="footer-social">
-                    <h4>Connect With Us</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="assets/kaFaLogo.png" alt="Ka Fa Bogaleng Logo">
+                        <p>Creating legacies through feminist business excellence since 2019</p>
+                        <div class="footer-social mt-4">
+                            <h4>Connect With Us</h4>
+                            <div class="social-icons d-flex gap-3">
+                                <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-services">
+                        <h4>Our Services</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="services.html">Business Consulting</a></li>
+                            <li><a href="services.html">Events Management</a></li>
+                            <li><a href="services.html">Construction Services</a></li>
+                            <li><a href="services.html">Catering Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-newsletter">
+                        <h4>Stay Updated</h4>
+                        <p>Subscribe to our newsletter for the latest updates</p>
+                        <form class="footer-newsletter-form">
+                            <input type="email" class="form-control mb-2" placeholder="Your email address" required>
+                            <button type="submit" class="w-100">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-services">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#services">Business Consulting</a></li>
-                    <li><a href="#services">Events Management</a></li>
-                    <li><a href="#services">Construction Services</a></li>
-                    <li><a href="#services">Catering Services</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Stay Updated</h4>
-                <p>Subscribe to our newsletter for the latest updates</p>
-                <form class="footer-newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
-            <div class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+            <div class="footer-bottom pt-4 border-top border-light">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">&copy; 2025 Ka Fa Bogaleng (Pty) Ltd. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="legal-links text-center text-md-end">
+                            <a href="#">Privacy Policy</a>
+                            <span class="mx-2">|</span>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         // Scroll progress bar
         window.addEventListener('scroll', () => {
@@ -1197,6 +1099,24 @@
             e.preventDefault();
             alert('Thank you for subscribing!');
             e.target.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .mission, .vision, .values').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
