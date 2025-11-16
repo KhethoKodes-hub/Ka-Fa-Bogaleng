@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="icon=" type="image/png" href="assets/kaLOGOOoo.png">
+    <link rel="icon=" type="image/png" href="assets/kaLOGOOoo.png">
 
     <style>
         * {
@@ -82,7 +82,7 @@
         }
 
         .logo img {
-            height: 120px;
+            height: 80px;
             width: auto;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
@@ -429,13 +429,14 @@
 
         .contact-method {
             padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.1);
         }
 
         .contact-method::before {
@@ -455,7 +456,7 @@
         }
 
         .contact-method:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 1);
             transform: translateX(15px) scale(1.02);
             box-shadow: 0 15px 40px rgba(126, 217, 87, 0.3);
         }
@@ -466,7 +467,7 @@
             gap: 1rem;
             margin-bottom: 1rem;
             font-size: 1.3rem;
-            color: var(--light-green);
+            color: var(--primary-blue);
         }
 
         .contact-method h4 i {
@@ -480,19 +481,22 @@
 
         .contact-method p {
             margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--neutral-dark);
+            font-weight: 500;
         }
 
         .contact-method a {
-            color: var(--light-green);
+            color: var(--primary-blue);
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
+            font-weight: 600;
         }
 
         .contact-method a:hover {
-            color: var(--white);
+            color: var(--dark-blue);
             transform: translateX(5px);
+            text-decoration: underline;
         }
 
         /* Business Hours */
@@ -539,6 +543,7 @@
             padding: 1rem;
             border-bottom: 1px solid var(--neutral-light);
             transition: all 0.3s ease;
+            color: var(--neutral-dark);
         }
 
         .business-hours tr:nth-child(even) {
@@ -963,6 +968,7 @@
                         <h4><i class="fas fa-phone-alt"></i> Phone</h4>
                         <p>Millicent: <a href="tel:0785174608">078 517 4608</a></p>
                         <p>Tsholofelo: <a href="tel:0761880124">076 188 0124</a></p>
+                        <p>Additional: <a href="tel:0799086831">079 908 6831</a></p>
                     </div>
                     
                     <div class="contact-method">
