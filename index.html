@@ -103,6 +103,7 @@
             padding: 0.5rem 1rem;
             border-radius: 10px;
             transition: all 0.3s ease;
+            z-index: 1001;
         }
 
         .mobile-menu-toggle:hover {
@@ -771,8 +772,37 @@
             }
         }
 
+        /* Mobile Navigation Styles */
+        .nav-links.active {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+            gap: 1.5rem;
+        }
+
         /* Responsive Design */
-        @media (max-width: 968px) {
+        @media (max-width: 1200px) {
+            .proverb-text {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .image-collage {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 992px) {
             .nav-links {
                 display: none;
             }
@@ -782,11 +812,184 @@
             }
 
             .proverb-text {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
             }
-
+            
+            .proverb-translation {
+                font-size: 1.4rem;
+            }
+            
             .section-title {
                 font-size: 2.5rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .image-collage {
+                height: 400px;
+            }
+            
+            .service-card {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .contact-form {
+                padding: 2.5rem;
+            }
+            
+            .footer-logo img {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .logo img {
+                height: 80px;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 3rem;
+                min-height: 80vh;
+            }
+            
+            .proverb-text {
+                font-size: 2.2rem;
+            }
+            
+            .proverb-translation {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-section, .services-section, .contact-section {
+                padding: 5rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .image-collage {
+                height: 300px;
+            }
+            
+            .mission, .vision {
+                padding: 1.5rem;
+            }
+            
+            .values {
+                padding: 2rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .contact-method {
+                padding: 1.5rem;
+            }
+            
+            .main-footer {
+                padding: 3rem 1rem 1rem;
+            }
+            
+            .footer-logo img {
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .proverb-text {
+                font-size: 1.8rem;
+            }
+            
+            .proverb-translation {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .image-collage {
+                height: 250px;
+            }
+            
+            .mission, .vision {
+                padding: 1.2rem;
+            }
+            
+            .values {
+                padding: 1.5rem;
+            }
+            
+            .values li {
+                font-size: 1rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .contact-method {
+                padding: 1.2rem;
+            }
+            
+            .footer-logo img {
+                height: 60px;
             }
         }
     </style>
@@ -798,11 +1001,11 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="#home">
-                    <img src="assets/kaLOGOOoo.png"  alt="Ka Fa Bogaleng Logo" >
+                    <img src="assets/kaLOGOOoo.png" alt="Ka Fa Bogaleng Logo">
                 </a>         
             </div>
-            <button class="mobile-menu-toggle">☰</button>
-            <ul class="nav-links">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -834,33 +1037,35 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3>Our Story</h3>
-                    <p>Ka Fa Bogaleng (Pty) Ltd is a 100% black owned female company founded on the 02 July 2019 in Tsantsabane. We are a multi-dimensional company rendering different services across various industries with a commitment to excellence and empowerment.</p>
-                    
-                    <div class="row g-4 my-4">
-                        <div class="col-md-6">
-                            <div class="mission">
-                                <h4>Our Mission</h4>
-                                <p>Render flawless services to our clients, build and maintain long lasting customer relationships and become partners of choice in all the industries we operate in.</p>
+                    <div class="about-text">
+                        <h3>Our Story</h3>
+                        <p>Ka Fa Bogaleng (Pty) Ltd is a 100% black owned female company founded on the 02 July 2019 in Tsantsabane. We are a multi-dimensional company rendering different services across various industries with a commitment to excellence and empowerment.</p>
+                        
+                        <div class="row g-4 my-4">
+                            <div class="col-md-6">
+                                <div class="mission">
+                                    <h4>Our Mission</h4>
+                                    <p>Render flawless services to our clients, build and maintain long lasting customer relationships and become partners of choice in all the industries we operate in.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="vision">
+                                    <h4>Our Vision</h4>
+                                    <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies that transform communities.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="vision">
-                                <h4>Our Vision</h4>
-                                <p>To inject matriarchy to the boardroom, stir feminism in trade, birth hope, and create long lasting legacies that transform communities.</p>
-                            </div>
+                        
+                        <div class="values">
+                            <h4>Our Core Values</h4>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-heart"></i> Family life and community</li>
+                                <li><i class="fas fa-hands-helping"></i> Sustainable development</li>
+                                <li><i class="fas fa-balance-scale"></i> Ethical business conduct</li>
+                                <li><i class="fas fa-lightbulb"></i> Innovative solutions</li>
+                                <li><i class="fas fa-handshake"></i> Lasting partnerships</li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="values">
-                        <h4>Our Core Values</h4>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-heart"></i> Family life and community</li>
-                            <li><i class="fas fa-hands-helping"></i> Sustainable development</li>
-                            <li><i class="fas fa-balance-scale"></i> Ethical business conduct</li>
-                            <li><i class="fas fa-lightbulb"></i> Innovative solutions</li>
-                            <li><i class="fas fa-handshake"></i> Lasting partnerships</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -918,73 +1123,6 @@
             </div>
         </div>
     </section>
-
-   <!--<section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="row g-5 mt-4">
-                <div class="col-lg-7">
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group mb-4">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="phone">Phone</label>
-                                <input type="tel" class="form-control" id="phone" name="phone">
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="service">Service Interested In</label>
-                                <select class="form-select" id="service" name="service">
-                                    <option value="">Select a service</option>
-                                    <option value="consulting">Business Consulting</option>
-                                    <option value="events">Events Management</option>
-                                    <option value="construction">Construction Services</option>
-                                    <option value="catering">Catering Services</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="message">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="cta-button primary w-100">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <div class="contact-method">
-                            <h4><i class="fas fa-phone-alt"></i> Phone</h4>
-                            <p>Millicent: <a href="tel:0785174608">078 517 4608</a></p>
-                            <p>Tsholofelo: <a href="tel:0761880124">076 188 0124</a></p>
-                        </div>
-                        <div class="contact-method">
-                            <h4><i class="fas fa-envelope"></i> Email</h4>
-                            <p><a href="mailto:info@kafabogaleng.co.za">info@kafabogaleng.co.za</a></p>
-                        </div>
-                        <div class="contact-method">
-                            <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
-                            <p>7113 Albertina Sisulu Street<br>
-                            Postdene,<br>
-                            Postmasburg, NC</p>
-                        </div>
-                        <div class="contact-method">
-                            <h4><i class="fas fa-clock"></i> Business Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
-                            Saturday: 9:00 AM - 1:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
 
     <footer class="main-footer">
         <div class="container">
@@ -1048,6 +1186,28 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change menu icon based on state
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.innerHTML = '✕';
+            } else {
+                mobileMenuToggle.innerHTML = '☰';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.innerHTML = '☰';
+            });
+        });
+
         // Scroll progress bar
         window.addEventListener('scroll', () => {
             const scrollProgress = document.getElementById('scrollProgress');
@@ -1081,18 +1241,24 @@
         });
 
         // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            e.target.reset();
-        });
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                e.target.reset();
+            });
+        }
 
         // Newsletter form handler
-        document.querySelector('.footer-newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing!');
-            e.target.reset();
-        });
+        const newsletterForm = document.querySelector('.footer-newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for subscribing!');
+                e.target.reset();
+            });
+        }
 
         // Add animation on scroll
         const observerOptions = {
