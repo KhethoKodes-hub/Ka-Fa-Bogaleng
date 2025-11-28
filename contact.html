@@ -103,6 +103,7 @@
             padding: 0.5rem 1rem;
             border-radius: 10px;
             transition: all 0.3s ease;
+            z-index: 1001;
         }
 
         .mobile-menu-toggle:hover {
@@ -150,6 +151,21 @@
 
         .nav-links a:hover::before {
             width: 100%;
+        }
+
+        /* Mobile Navigation Styles */
+        .nav-links.active {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+            gap: 1.5rem;
         }
 
         /* Page Header */
@@ -763,70 +779,6 @@
             box-shadow: 0 10px 25px rgba(126, 217, 87, 0.5);
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: translateX(-100%);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: var(--gradient-primary);
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-close:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            text-align: center;
-        }
-
-        .mobile-nav-links li {
-            margin: 1.5rem 0;
-        }
-
-        .mobile-nav-links a {
-            text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--neutral-dark);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav-links a:hover {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -839,7 +791,21 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 968px) {
+        @media (max-width: 1200px) {
+            .page-title {
+                font-size: 3.8rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .contact-grid {
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
             .nav-links {
                 display: none;
             }
@@ -849,31 +815,256 @@
             }
 
             .page-title {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
-
+            
+            .page-subtitle {
+                font-size: 1.5rem;
+            }
+            
             .section-title {
                 font-size: 2.5rem;
             }
-
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-
+            
             .contact-form {
+                padding: 2.5rem;
+            }
+            
+            .contact-method {
                 padding: 2rem;
             }
-
+            
+            .business-hours {
+                padding: 2rem;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
+            
             .cta-button {
                 width: 100%;
                 max-width: 300px;
                 text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .page-header {
+                padding: 8rem 1rem 4rem;
+                min-height: 50vh;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .breadcrumb-nav {
+                padding: 1rem;
+                top: 70px;
+            }
+            
+            .contact-section, .map-section, .cta-section {
+                padding: 5rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 1rem;
+            }
+            
+            .submit-btn {
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+            
+            .contact-method {
+                padding: 1.5rem;
+            }
+            
+            .contact-method h4 {
+                font-size: 1.2rem;
+            }
+            
+            .business-hours {
+                padding: 1.5rem;
+            }
+            
+            .business-hours h4 {
+                font-size: 1.2rem;
+            }
+            
+            .business-hours th,
+            .business-hours td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .map-container iframe {
+                height: 350px;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+            }
+            
+            .main-footer {
+                padding: 3rem 1rem 1rem;
+            }
+            
+            .footer-logo img {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .form-group label {
+                font-size: 0.9rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .submit-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-method {
+                padding: 1.2rem;
+            }
+            
+            .contact-method h4 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-method p {
+                font-size: 0.9rem;
+            }
+            
+            .business-hours {
+                padding: 1.2rem;
+            }
+            
+            .business-hours h4 {
+                font-size: 1.1rem;
+            }
+            
+            .business-hours th,
+            .business-hours td {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-logo img {
+                height: 60px;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .contact-form {
+                padding: 1rem;
+            }
+            
+            .business-hours th,
+            .business-hours td {
+                padding: 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .map-container iframe {
+                height: 250px;
             }
         }
     </style>
@@ -889,7 +1080,7 @@
                 </a>         
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -898,18 +1089,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
-        <ul class="mobile-nav-links">
-            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-            <li><a href="about.html" class="mobile-nav-link">About</a></li>
-            <li><a href="services.html" class="mobile-nav-link">Services</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-        </ul>
-    </div>
-
-  
     <header class="page-header">
         <div class="page-header-content">
             <h1 class="page-title">Contact Us</h1>
@@ -1046,7 +1225,7 @@
                             <h4>Connect With Us</h4>
                             <div class="social-icons d-flex gap-3">
                                 <a href="https://www.facebook.com/kafabogaleng/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                 <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <!--<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
                             </div>
@@ -1075,8 +1254,6 @@
                         </ul>
                     </div>
                 </div>
-                
-                </div>
             </div>
             <div class="footer-bottom pt-4 border-top border-light">
                 <div class="row">
@@ -1102,6 +1279,28 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change menu icon based on state
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.innerHTML = '✕';
+            } else {
+                mobileMenuToggle.innerHTML = '☰';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.innerHTML = '☰';
+            });
+        });
+
         // Scroll progress bar
         window.addEventListener('scroll', () => {
             const scrollProgress = document.getElementById('scrollProgress');
@@ -1122,26 +1321,6 @@
                 nav.classList.remove('scrolled');
                 backToTop.classList.remove('visible');
             }
-        });
-
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
         });
 
         // Contact form submission
@@ -1246,9 +1425,6 @@
                         top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    mobileMenu.classList.remove('active');
                 }
             });
         });
@@ -1267,11 +1443,14 @@
         });
 
         // Newsletter form handler
-        document.querySelector('.footer-newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing!');
-            e.target.reset();
-        });
+        const newsletterForm = document.querySelector('.footer-newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for subscribing!');
+                e.target.reset();
+            });
+        }
     </script>
 </body>
 </html>
